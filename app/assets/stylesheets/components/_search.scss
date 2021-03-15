@@ -1,5 +1,5 @@
 .search_style{
-  width: 800px;
+  width: 80%;
   margin: auto;
   margin-top: 12px;
 }
@@ -25,5 +25,10 @@ color : #fff;
 }
 
 .size-text {
-  width: 600px;
+  width: 100%;
+}
+
+// Pour enlever l'icone de géolocalisation
+button.ap-input-icon.ap-icon-pin {
+  display: none;
 }

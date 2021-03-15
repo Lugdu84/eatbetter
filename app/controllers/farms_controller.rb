@@ -1,12 +1,13 @@
 class FarmsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[show]
+  skip_before_action :authenticate_user!, only: %i[show index]
 
   def index
     @farms = Farm.near(params[:query], 50)
-
+    coords = Geocoder.coordinates(params[:query])
     @markers = {
-      'type': 'FeatureCollection',
-      'features': []
+      type: 'FeatureCollection',
+      coordinates: coords,
+      features: []
     }
     @farms.each do |farm|
       @markers[:features] << {
@@ -16,19 +17,11 @@ class FarmsController < ApplicationController
           type: "Point",
           coordinates: farm.coordinates
         },
-        "properties": {
-          icon: {
-            iconUrl: 'https://www.mapbox.com/mapbox.js/assets/images/astronaut2.png',
-            iconSize: [50, 50],
-            iconAnchor: [25, 25],
-            popupAnchor: [0, -25],
-            className: 'dot'
-          },
-          "name": farm.name,
+        properties: {
           address: farm.address,
           info_window: render_to_string(
             partial: "farms/info_window",
-            locals: { flat: flat }
+            locals: { farm: farm }
           )
         }
       }
