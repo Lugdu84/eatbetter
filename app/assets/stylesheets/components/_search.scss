@@ -1,0 +1,29 @@
+.search_style{
+  width: 800px;
+  margin: auto;
+  margin-top: 12px;
+}
+.input-group-text{
+  background-color: #FFDB6B;
+   text-decoration:none;
+}
+a {
+color : #fff;
+ text-decoration:none;
+}
+
+.input-group-text:hover{
+  background-color: #ececec;
+  text-decoration:none;
+}
+
+.search-geo-controls {
+  display: flex;
+  flex-direction: row;
+  //justify-content: space-between;
+  align-items: flex-start;
+}
+
+.size-text {
+  width: 600px;
+}
