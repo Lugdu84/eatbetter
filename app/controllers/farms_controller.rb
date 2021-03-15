@@ -13,6 +13,7 @@ class FarmsController < ApplicationController
       @markers[:features] << {
         type: "Feature",
         id: farm.id,
+        category: farm.category,
         geometry: {
           type: "Point",
           coordinates: farm.coordinates
