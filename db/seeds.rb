@@ -17,6 +17,7 @@ User.destroy_all
 
 puts 'Create users...'
 cities = %w[marseille, aubagne, cassis, avignon, cavaillon, lyon, bron, annecy, sorgues, grenoble]
+categories = %w[fruits fleurs]
 users = []
 farms = []
 5.times do |i|
@@ -33,11 +34,13 @@ end
 puts "#{users.count} users as been creating..."
 puts 'Finish to create users...'
 
+
 puts "Creating farms..."
 10.times do |i|
   farm = Farm.create!(
     user: User.first,
     address: cities[i],
+    category: categories.sample,
     content: Faker::Lorem::paragraph,
   )
   farms << farm

@@ -2,7 +2,7 @@ class FarmsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show index]
 
   def index
-    @farms = Farm.near(params[:query], 50)
+    @farms = Farm.near(params[:query], 1000)
     coords = Geocoder.coordinates(params[:query])
     @markers = {
       type: 'FeatureCollection',
@@ -13,6 +13,7 @@ class FarmsController < ApplicationController
       @markers[:features] << {
         type: "Feature",
         id: farm.id,
+        category: farm.category,
         geometry: {
           type: "Point",
           coordinates: farm.coordinates

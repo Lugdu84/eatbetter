@@ -5,7 +5,6 @@ class Farm < ApplicationRecord
   has_many :products
   has_many_attached :photos
 
-
   def coordinates
     [longitude, latitude]
   end
