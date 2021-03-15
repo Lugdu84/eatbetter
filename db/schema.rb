@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_215450) do
+ActiveRecord::Schema.define(version: 2021_03_15_174427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,13 +36,6 @@ ActiveRecord::Schema.define(version: 2021_03_15_215450) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "icon"
-  end
-
   create_table "farms", force: :cascade do |t|
     t.string "address"
     t.string "tel"
@@ -53,8 +46,6 @@ ActiveRecord::Schema.define(version: 2021_03_15_215450) do
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
-    t.bigint "category_id", null: false
-    t.index ["category_id"], name: "index_farms_on_category_id"
     t.index ["user_id"], name: "index_farms_on_user_id"
   end
 
@@ -86,7 +77,6 @@ ActiveRecord::Schema.define(version: 2021_03_15_215450) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "farms", "categories"
   add_foreign_key "farms", "users"
   add_foreign_key "products", "farms"
 end
