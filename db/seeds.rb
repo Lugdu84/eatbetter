@@ -45,4 +45,13 @@ puts "Creating farms..."
 end
 puts "create farms OK"
 
+20.times do |i|
+  Product.create!(
+    price: 1,
+    name: 'tomate',
+    units: 'kg',
+    farm: Farm.first
+  )
+end
+
 puts "End of seed..."
