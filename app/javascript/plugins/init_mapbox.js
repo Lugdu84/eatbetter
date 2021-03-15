@@ -31,9 +31,9 @@ const initMapbox = () => {
                         map.addSource('markers', {
                             type: 'geojson',
                             data: markers,
-                            cluster: true,
-                            clusterMaxZoom: 14,
-                            clusterRadius: 50
+                           // cluster: true,
+                           // clusterMaxZoom: 14,
+                            //clusterRadius: 100
                         });
                         map.addLayer({
                             'id': 'markers',
@@ -49,7 +49,7 @@ const initMapbox = () => {
                             });
                         });
 
-                        map.jumpTo({center: markers.features[0].geometry.coordinates});
+                        //map.jumpTo({center: markers.features[0].geometry.coordinates});
                         map.on('click', function (e) {
                             const marker = map.queryRenderedFeatures(e.point, {
 
