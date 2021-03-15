@@ -38,6 +38,7 @@ puts "Creating farms..."
   farm = Farm.create!(
     user: User.first,
     address: cities[i],
+
     content: Faker::Lorem::paragraph,
   )
   farms << farm
