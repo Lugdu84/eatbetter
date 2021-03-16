@@ -57,7 +57,19 @@ const initMapbox = () => {
                             if (marker[0].layer.id === "markers")
                             {
                                 //TODO implements interactions with cards
-                                console.log(marker[0].id);
+                                console.log(marker[0].properties.id);
+
+
+                                const activeItem = document.getElementsByClassName('card-active');
+                                console.log(activeItem);
+                                if (activeItem[0]) {
+                                    activeItem[0].classList.remove('card-active');
+                                }
+                                const cardActive = document.getElementById(marker[0].properties.id);
+                                console.log(marker[0].properties.id);
+                                console.log(cardActive);
+                                cardActive.classList.add('card-active');
+                                //TODO implements visible active (border) and take him first
                             }
                         });
                     }
