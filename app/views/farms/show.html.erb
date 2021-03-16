@@ -1,0 +1,17 @@
+<ul>
+  <ol> <%= @farm.user.first_name %> <%= @farm.user.last_name %> </ol>
+  <ol><%= @farm.name %></ol>
+  <ol><%= @farm.category %></ol>
+</ul>
+
+<ul>
+  <li><%= @farm.address %></li>
+  <li><%= @farm.tel %></li>
+  <li><%= @farm.email %></li>
+  <li><%= @farm.content %></li>
+</ul>
+<% @farm.products.each do |product| %>
+  <%= product.name %>
+  <%= product.price %>
+  <%= product.units %>
+<% end %>
