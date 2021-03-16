@@ -1,7 +1,9 @@
-<%= @farm.user.first_name %>
-<%= @farm.user.last_name %>
+<ul>
+  <ol> <%= @farm.user.first_name %> <%= @farm.user.last_name %> </ol>
+  <ol><%= @farm.name %></ol>
+  <ol><%= @farm.category %></ol>
+</ul>
 
-<%= @farm.category %>
 <ul>
   <li><%= @farm.address %></li>
   <li><%= @farm.tel %></li>
