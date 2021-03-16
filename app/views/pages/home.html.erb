@@ -1,3 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= render 'shared/search' %>
+
+<div class="banner" style="background-image: url(<%= asset_url('fond-home-eatbetter') %>);">
+  <div class="container">
+    <h1>Trouver votre producteur à coté de chez vous</h1>
+    <%= render 'shared/search' %>
+      <div class="checkbox-pictohome">
+        <form action="/action_page.php">
+          <input type="checkbox" id="Légumes" name="légumes" value="">
+          <label for="légumes"> Légumes</label><div class="legume"></div>
+          <input type="checkbox" id="Fruits" name="Fruits" value="">
+          <label for="Fruits"> Fruits</label>
+          <input type="checkbox" id="Fleurs" name="Fleurs" value="">
+          <label for="Fleurs"> Fleurs</label><br>
+          <input type="checkbox" id="Fromages" name="Fromages" value="">
+          <label for="Fromages"> Fromages</label>
+          <input type="checkbox" id="Poissons" name="Poissons" value="">
+          <label for="Poissons"> Poissons</label>
+          <input type="checkbox" id="Viandes" name="Viandes" value="">
+          <label for="Viandes"> Viandes</label><br><br>
+          <input type="submit" value="Trouver">
+        </form>
+      </div>
+  </div>
