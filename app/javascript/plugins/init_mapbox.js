@@ -4,10 +4,10 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 const initMapbox = () => {
     const mapElement = document.getElementById('map');
-    const markers = JSON.parse(mapElement.dataset.markers);
+
     if (mapElement) { // only build a map if there's a div#map to inject into
         mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-
+        const markers = JSON.parse(mapElement.dataset.markers);
         const lat = markers.coordinates[1];
         const lng = markers.coordinates[0];
         const map = new mapboxgl.Map({
@@ -56,26 +56,41 @@ const initMapbox = () => {
                             })
                             if (marker[0].layer.id === "markers")
                             {
-                                //TODO implements interactions with cards
-                                console.log(marker[0].properties.id);
-
-
                                 const activeItem = document.getElementsByClassName('card-active');
-                                console.log(activeItem);
                                 if (activeItem[0]) {
                                     activeItem[0].classList.remove('card-active');
                                 }
                                 const cardActive = document.getElementById(marker[0].properties.id);
-                                console.log(marker[0].properties.id);
-                                console.log(cardActive);
                                 cardActive.classList.add('card-active');
-                                //TODO implements visible active (border) and take him first
+                                //TODO implements take it first
+
                             }
                         });
                     }
                 )
             });
+
         }
+        const cards = document.querySelector('.cards-farm');
+        cards.onscroll = (e) => {
+            markers.features.forEach ((marker) => {
+                const id = marker.properties.id;
+                if (isElementOnScreen(id)){
+                    map.flyTo({
+                        center: marker.geometry.coordinates,
+                    });
+                }
+            });
+
+        };
+    }
+
+    const isElementOnScreen = (id) => {
+        const element = document.getElementById(id);
+        const bounds = element.getBoundingClientRect();
+        //console.log(bounds.left);
+        //console.log(bounds.right);
+        return (bounds.left < window.innerWidth / 2) && (bounds.right > window.innerWidth / 2) ;
     }
 };
 
