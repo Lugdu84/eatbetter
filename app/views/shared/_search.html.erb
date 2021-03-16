@@ -1,10 +1,14 @@
-<%= form_tag farms_path, method: :get, class: "search-geo-controls input-group rounded search_style" do %>
-  <div><%= text_field_tag :query,
-                          params[:query],
-                          class: "form-control rounded size-text",
-                          placeholder: "Cherchez votre producteur"
-  %></div>
-  <%= button_tag(type: 'submit', class:'btn btn-info') do %>
-    <i class="fas fa-search"></i>
-  <% end %>
-<% end %>
+<div class="containersearchbar">
+  <div class="search-bar">
+    <%= form_tag farms_path, method: :get, class: "search-geo-controls input-group rounded search_style" do %>
+      <div><%= text_field_tag :query,
+                              params[:query],
+                              class: "form-control rounded size-text",
+                              placeholder: "Choisissez votre ville"
+      %></div>
+      <%= button_tag(type: 'submit', class:'btn btn-info') do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
