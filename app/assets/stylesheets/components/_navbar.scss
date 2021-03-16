@@ -16,5 +16,11 @@
   left: 50%;
   //transform: translate(50%, 0%);
 }
-
-
+.navbar{
+padding: 17px;
+}
+// menu forcé a gauche navbar
+.navbar-toggler {
+  position: absolute;
+  left: 5%;
+}
