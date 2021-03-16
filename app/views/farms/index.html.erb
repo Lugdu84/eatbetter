@@ -1,5 +1,3 @@
-
-<%= render 'shared/search' %>
 <div id="map"
      style="width: 100vw; height: 70vh;"
      data-markers="<%= @markers.to_json %>"
@@ -7,11 +5,11 @@
 </div>
 <div class="cards-farm">
   <% @farms.each do |farm|%>
-    <div class="card-product">
+    <div class="card-product" id=" <%= farm.id %>">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
       <div class="card-product-infos">
         <h2> <%= farm.address %> </h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
+        <p> <%= farm.content %></p>
       </div>
     </div>
   <% end %>

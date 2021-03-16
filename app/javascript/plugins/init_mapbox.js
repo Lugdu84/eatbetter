@@ -4,10 +4,10 @@ import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 const initMapbox = () => {
     const mapElement = document.getElementById('map');
-
+    const markers = JSON.parse(mapElement.dataset.markers);
     if (mapElement) { // only build a map if there's a div#map to inject into
         mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-        const markers = JSON.parse(mapElement.dataset.markers);
+
         const lat = markers.coordinates[1];
         const lng = markers.coordinates[0];
         const map = new mapboxgl.Map({
@@ -44,7 +44,6 @@ const initMapbox = () => {
                             }
                         });
                         map.on('click', 'markers', function (e) {
-
                             map.flyTo({
                                 center: e.features[0].geometry.coordinates
                             });
@@ -58,13 +57,13 @@ const initMapbox = () => {
                             if (marker[0].layer.id === "markers")
                             {
                                 //TODO implements interactions with cards
+                                console.log(marker[0].id);
                             }
                         });
                     }
                 )
             });
         }
-
     }
 };
 
