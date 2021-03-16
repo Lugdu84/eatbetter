@@ -79,6 +79,7 @@ const initMapbox = () => {
                     map.flyTo({
                         center: marker.geometry.coordinates,
                     });
+                    //TODO Implement change icon of markerActive
                 }
             });
 
