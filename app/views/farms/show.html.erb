@@ -1,4 +1,15 @@
-<% @farms.each do |farm| %>
-  <%= farm.address %>
-  <%= link_to "découvrir", farm, class: "btn btn-ghost" %>
+<%= @farm.user.first_name %>
+<%= @farm.user.last_name %>
+
+<%= @farm.category %>
+<ul>
+  <li><%= @farm.address %></li>
+  <li><%= @farm.tel %></li>
+  <li><%= @farm.email %></li>
+  <li><%= @farm.content %></li>
+</ul>
+<% @farm.products.each do |product| %>
+  <%= product.name %>
+  <%= product.price %>
+  <%= product.units %>
 <% end %>

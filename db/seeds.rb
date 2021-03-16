@@ -41,6 +41,8 @@ puts "Creating farms..."
     user: User.first,
     address: cities[i],
     category: categories.sample,
+    tel: Faker::PhoneNumber.cell_phone,
+    email: Faker::Internet.email,
     content: Faker::Lorem::paragraph,
   )
   farms << farm
