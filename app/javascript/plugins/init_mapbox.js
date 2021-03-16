@@ -44,6 +44,7 @@ const initMapbox = () => {
                             }
                         });
                         map.on('click', 'markers', function (e) {
+
                             map.flyTo({
                                 center: e.features[0].geometry.coordinates
                             });
