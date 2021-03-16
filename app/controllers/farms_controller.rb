@@ -40,7 +40,7 @@ class FarmsController < ApplicationController
   def create
     @farm = Farm.new(farm_params)
     if @farm.save
-      redirect_to Farm_path(@farm)
+      redirect_to farm_path(@farm)
     else
       render :new
     end
@@ -53,7 +53,7 @@ class FarmsController < ApplicationController
   end
 
   def farm_params
-    params.require(:farm).permit(:name, :content, :name, :tel, :address, :category, photos: [])
+    params.require(:farm).permit(:name, :user_id, :content, :email, :tel, :address, :category, photos: [])
   end
 end
 

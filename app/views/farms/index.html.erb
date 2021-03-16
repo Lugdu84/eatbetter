@@ -6,7 +6,10 @@
 <div class="cards-farm">
   <% @farms.each do |farm|%>
     <div class="card-product" id="<%= farm.id %>">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+<!--      TODO only first photo-->
+      <% farm.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
       <div class="card-product-infos">
         <h2> <%= farm.address %> </h2>
         <p> <%= farm.content %></p>
