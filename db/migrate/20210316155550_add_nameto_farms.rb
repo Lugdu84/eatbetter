@@ -1,5 +1,5 @@
 class AddNametoFarms < ActiveRecord::Migration[6.0]
   def change
-    add_column :farms, :name
+    add_column :farms, :name, :string
   end
 end
