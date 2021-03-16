@@ -32,5 +32,28 @@ class FarmsController < ApplicationController
   def show
     @farm = Farm.find(params[:id])
   end
+
+  def new
+    @farm = Farm.new
+  end
+
+  def create
+    @farm = Farm.new(farm_params)
+    if @farm.save
+      redirect_to Farm_path(@farm)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def find_farm
+    @farm = Farm.find(params[:id])
+  end
+
+  def farm_params
+    params.require(:farm).permit(:name, :content, :name, :tel, :address, :category, photos: [])
+  end
 end
 
