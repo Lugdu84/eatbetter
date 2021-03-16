@@ -1,12 +1,20 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  position: relative;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+// modif logo central, à une position absolue
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  //transform: translate(50%, 0%);
 }
+
+

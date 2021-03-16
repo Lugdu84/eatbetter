@@ -1,27 +1,28 @@
 .search_style{
-  width: 80%;
-  margin: auto;
+  width: 100%;
   margin: 12px;
+  text-align:center;
 }
 .input-group-text{
-  background-color: #FFDB6B;
-   text-decoration:none;
+  background-color: #ED7D2B;
+  text-decoration:none;
 }
 a {
-color : #fff;
+color : #ADC9E0;
  text-decoration:none;
 }
 
 .input-group-text:hover{
-  background-color: #ececec;
+  background-color: #FFA412;
   text-decoration:none;
 }
 
 .search-geo-controls {
   display: flex;
-  flex-direction: row;
-  //justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  //flex-direction: row;
+  // justify-content: space-between;
+  //align-items: flex-start;
 }
 
 .size-text {
@@ -31,4 +32,11 @@ color : #fff;
 // Pour enlever l'icone de géolocalisation
 button.ap-input-icon.ap-icon-pin {
   display: none;
+}
+
+.search-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
