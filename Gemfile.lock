@@ -96,6 +96,8 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.7.0)
+    faker (2.16.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.0)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
@@ -125,10 +127,14 @@ GEM
     mime-types-data (3.2021.0225)
     mimemagic (0.3.5)
     mini_mime (1.0.2)
+    mini_portile2 (2.5.0)
     minitest (5.14.4)
     msgpack (1.4.2)
     netrc (0.11.0)
     nio4r (2.5.7)
+    nokogiri (1.11.2)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     nokogiri (1.11.2-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -254,6 +260,11 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+<<<<<<< HEAD
+=======
+  ruby
+  unknown
+>>>>>>> b7755276e7fc5df428644fe66806cd43cf21a4e0
   x86_64-darwin-19
   x86_64-darwin-20
 
@@ -265,6 +276,7 @@ DEPENDENCIES
   cloudinary (~> 1.16.0)
   devise
   dotenv-rails
+  faker
   font-awesome-sass
   geocoder
   jbuilder (~> 2.7)

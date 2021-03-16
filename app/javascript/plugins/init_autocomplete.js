@@ -2,18 +2,19 @@ import places from 'places.js';
 // autocomplete for create or search
 const initAutocomplete = () => {
     const addressInput = document.getElementById('query');
-    /*if (addressInput) {
+    if (addressInput) {
         places({ container: addressInput });
-    }*/
+    };
+    document.getElementById('query').value = ""
 
-    const placesAutoComplete = places({
+    /*const placesAutoComplete = places({
         container: addressInput,
-    });
+    });*/
     /*placesAutoComplete.on('locate', function resultSelected(e) {
         console.log(e);
     });*/
 
-    const findMe = document.getElementById('locate-me')
+    /*const findMe = document.getElementById('locate-me')
     findMe.addEventListener('click', function(e) {
         e.preventDefault();
         findMe.textContent = 'Localisation...';
@@ -36,11 +37,11 @@ const initAutocomplete = () => {
             afterLocal();
         }
         navigator.geolocation.getCurrentPosition(success, error);
-    });
-    placesAutoComplete.on('reverse', function resultSelected(e) {
+    });*/
+    /*placesAutoComplete.on('reverse', function resultSelected(e) {
         const suggestion = e.suggestions[0];
         document.getElementById('query').value = suggestion.city;
-    });
+    });*/
 };
 
 export { initAutocomplete };

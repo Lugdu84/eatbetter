@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create, :destroy]
+  skip_before_action :authenticate_user!, only: %i[show]
   def show
-    @product = Product.find #(params[:id])
-    #1503SHOW A VERIFIER AVEC UN TA PUSHER SUR MASTER SANS CETTE VERIF
+    @product = Product.find(params[:id])
   end
 end
