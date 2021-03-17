@@ -1,8 +1,8 @@
-<ul>
-  <ol> <%= @farm.user.first_name %> <%= @farm.user.last_name %> </ol>
-  <ol><%= @farm.name %></ol>
-  <ol><%= @farm.category %></ol>
-</ul>
+<!-- <ul> -->
+ <!--  <ol> <%= @farm.user.first_name %> <%= @farm.user.last_name %> </ol> -->
+  <!-- <ol><%= @farm.name %></ol> -->
+  <!-- <ol><%= @farm.category %></ol> -->
+<!-- </ul> -->
 
 <ul>
   <li><%= @farm.address %></li>
@@ -15,3 +15,21 @@
   <%= product.price %>
   <%= product.units %>
 <% end %>
+
+
+
+<div class="farm-images">
+  <%= image_tag "Producteurs/1/1.jpg" %>
+  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="farm-user avatar-bordered" />
+</div>
+<div class="farm-rating d-flex mt-3 justify-content-center">
+  <% 3.times do %>
+    <i class="fas fa-star colored"></i>
+  <% end %>
+  <% (5 - 3).times do %>
+    <i class="fas fa-star"></i>
+  <% end %>
+</div>
+<div class="farm-description mt-3">
+
+</div>
