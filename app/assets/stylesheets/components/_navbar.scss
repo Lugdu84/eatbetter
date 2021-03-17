@@ -10,11 +10,12 @@
 
 // modif logo central, à une position absolue
 .navbar-lewagon .navbar-brand img {
-  width: 50px;
   position: absolute;
   top: 5%;
-  left: 50%;
+  left: 20%;
   //transform: translate(50%, 0%);
 }
-
+.navbar{
+padding: 17px;
+}
 
