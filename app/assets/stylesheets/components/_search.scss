@@ -1,6 +1,6 @@
 .search_style{
   width: 100%;
-  margin: 12px;
+  margin: 5px;
   text-align:center;
 }
 .input-group-text{
@@ -40,3 +40,117 @@ button.ap-input-icon.ap-icon-pin {
   flex-direction: row;
   justify-content: center;
 }
+.btn-info{
+  color: #fff;
+  background-color: #ED7D2B;
+}
+.btn-info:hover{
+  color: #ED7D2B;
+  border: 2px solid #ED7D2B;;
+  background-color: #fff;
+}
+.checkbox-pictohome {
+  //text-align: center;
+  color :#2C3A64;
+  display: inline-flex;
+ flex-direction: row ;
+justify-content: space-between ;
+}
+
+.carotte {
+  background-image: url("Picto/legume.png");
+  height: 40px;
+  width: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.carottebox{
+display:flex;
+align-items: center;
+
+}
+#legumes{
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+.pomme{
+  background-image: url("Picto/fruit.png");
+  height: 25px;
+  width: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.pommebox{
+display:flex;
+align-items: center;
+
+}
+#fruits{
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+.fleur{
+  background-image: url("Picto/fleur.png");
+  height: 25px;
+  width: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.fleurbox{
+display:flex;
+align-items: center;
+
+}
+#fleurs{
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+.fromage{
+  background-image: url("Picto/fromage.png");
+  height: 25px;
+  width: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.fromagebox{
+display:flex;
+align-items: center;
+
+}
+#fromages{
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+.poisson{
+  background-image: url("Picto/poisson.png");
+  height: 25px;
+  width: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.poissonbox{
+display:flex;
+align-items: center;
+
+}
+#poissons{
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+.viande{
+  background-image: url("Picto/viande.png");
+  height: 30px;
+  width: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.viandebox{
+display:flex;
+align-items: center;
+
+}
+#viandes{
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
