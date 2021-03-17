@@ -46,10 +46,10 @@ puts "Creating farms..."
     email: Faker::Internet.email,
     content: Faker::Lorem::paragraph,
     name: Faker::Ancient.hero,
-    photo1: "images/Producteurs/#{i + 1}/1.jpg",
-    photo2: "images/Producteurs/#{i + 1}/2.jpg",
-    photo3: "images/Producteurs/#{i + 1}/3.jpg",
-    photo_owner: "images/Producteurs/#{i + 1}/0#{i + 1}.jpg"
+    photo1: "Producteurs/#{i + 1}/1.jpg",
+    photo2: "Producteurs/#{i + 1}/2.jpg",
+    photo3: "Producteurs/#{i + 1}/3.jpg",
+    photo_owner: "Producteurs/#{i + 1}/0#{i + 1}.jpg"
   )
   farms << farm
   puts "farm #{i} create"
