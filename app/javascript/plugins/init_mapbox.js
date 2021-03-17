@@ -62,8 +62,9 @@ const initMapbox = () => {
                                 }
                                 const cardActive = document.getElementById(marker[0].properties.id);
                                 cardActive.classList.add('card-active');
-                                //TODO implements take it first
-
+                                const bounds = cardActive.getBoundingClientRect();
+                                cardActive.scrollIntoView();
+                                //TODO implements take center in parentNode
                             }
                         });
                     }
