@@ -16,11 +16,11 @@ puts "Destroy all users..."
 User.destroy_all
 
 puts 'Create users...'
-cities = %w[marseille, aubagne, cassis, avignon, cavaillon, lyon, bron, annecy, sorgues, grenoble]
+cities = %w[marseille, aubagne, cassis, lascours, allauch, napollon, auriol, peypin, ceyreste, cadolive]
 categories = %w[fruits fleurs]
 users = []
 farms = []
-5.times do |i|
+10.times do |i|
   user = User.create!(
     first_name: Faker::Name::first_name,
     last_name: Faker::Name::last_name,
@@ -36,21 +36,28 @@ puts 'Finish to create users...'
 
 
 puts "Creating farms..."
+
 10.times do |i|
   farm = Farm.create!(
-    user: User.first,
+    user: users[i],
     address: cities[i],
     category: categories.sample,
     tel: Faker::PhoneNumber.cell_phone,
     email: Faker::Internet.email,
     content: Faker::Lorem::paragraph,
     name: Faker::Ancient.hero,
+    photo1: "Producteurs/#{i + 1}/1.jpg",
+    photo2: "Producteurs/#{i + 1}/2.jpg",
+    photo3: "Producteurs/#{i + 1}/3.jpg",
+    photo_owner: "Producteurs/#{i + 1}/0#{i + 1}.jpg"
   )
   farms << farm
   puts "farm #{i} create"
 end
 puts "create farms OK"
 
+
+=begin
 20.times do |i|
   Product.create!(
     price: 1,
@@ -59,5 +66,6 @@ puts "create farms OK"
     farm: Farm.first
   )
 end
+=end
 
 puts "End of seed..."
