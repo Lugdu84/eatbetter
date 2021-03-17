@@ -3,9 +3,9 @@ class FarmsController < ApplicationController
 
   def index
     coords = Geocoder.coordinates(params[:query])
-    if params[:category].present?
+    if params[:fruits].present?
       sql_query = "category LIKE :category"
-      farms_where = Farm.where(sql_query, category: "%#{params[:category]}%")
+      farms_where = Farm.where(sql_query, category: "%#{params[:fruits]}%")
       @farms = farms_where.near(params[:query], 100)
     else
       @farms = Farm.near(params[:query], 100)
