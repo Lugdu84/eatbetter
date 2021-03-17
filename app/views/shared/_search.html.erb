@@ -2,13 +2,47 @@
   <div class="search-bar">
     <%= form_tag farms_path, method: :get, class: "search-geo-controls input-group rounded search_style" do %>
       <div><%= text_field_tag :query,
-                              params[:query],
-                              class: "form-control rounded size-text",
-                              placeholder: "Choisissez votre ville"
+        params[:query],
+        class: "form-control rounded size-text",
+        placeholder: "Choisissez votre ville"
       %></div>
+      <div class="checkbox-pictohome row mt-3">
+        <div class="carottebox col-4">
+          <input type="checkbox" id="legumes" name="légumes" value="">
+          <label for="légumes"> Légumes</label>
+          <div class="carotte"></div>
+        </div>
+        <div class="pommebox col-4">
+          <input type="checkbox" id="fruits" name="Fruits" value="">
+          <label for="fruits"> Fruits</label>
+          <div class="pomme"></div>
+        </div>
+        <div class="fleurbox col-4">
+          <input type="checkbox" id="fleurs" name="Fleurs" value="">
+          <label for="Fleurs">Fleurs</label>
+          <div class="fleur"></div>
+        </div>
+        <div class="fromagebox col-4">
+          <input type="checkbox" id="fromages" name="Fromages" value="">
+          <label for="Fromages"> Fromages</label>
+          <div class="fromage"></div>
+        </div>
+        <div class="poissonbox col-4">
+          <input type="checkbox" id="poissons" name="Poissons" value="">
+          <label for="Poissons"> Poissons</label>
+          <div class="poisson"></div>
+        </div>
+        <div class="viandebox col-4">
+          <input type="checkbox" id="viandes" name="Viandes" value="">
+          <label for="Viandes"> Viandes</label>
+          <div class="viande"></div>
+        </div>
+      </div>
       <%= button_tag(type: 'submit', class:'btn btn-info') do %>
+        Trouver
         <i class="fas fa-search"></i>
       <% end %>
+
     <% end %>
   </div>
 </div>

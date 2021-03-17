@@ -1,23 +1,20 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div><i class="fas fa-bars"></i></div>
     <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag("logo/logo.jpg", class: "img-responsive", id: "navbar-logo") %>
     <% end %>
     <!-- <i class=“fal fa-shopping-bag”></i> -->
     <!-- <i class=“fal fa-user”></i> -->
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-      <% if user_signed_in? %>
-
-        <div> class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-
-        </div>
-      <% else %>
-        <div class="">
-          <%= link_to "Logine", new_user_session_path, class: "nav-link" %>
-        </div>
-      <% end %>
+<div class="d-flex">
+  <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "", destroy_user_session_path, :method => :delete, class: "fas fa-user-circle profil-color-on" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "", new_user_session_path, class: "far fa-user-circle profil-color-off" %>
+          </li>
+        <% end %>
+        <i class="fas fa-shopping-basket profil-color-off ml-2"></i>
+</div>
 </div>
