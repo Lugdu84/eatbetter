@@ -79,7 +79,9 @@ const initMapbox = () => {
                 markers.features.forEach(function(marker) {
                     /* Create a div element for the marker. */
                     const el = document.createElement('div');
-                    el.className = 'marker';
+                    el.id =`marker-${marker.properties.id}`;
+                    el.className = 'map-markers';
+                    el.classList.add('all-marker', 'marker');
                     /**
                      * Create a marker using the div element
                      * defined above and add it to the map.
@@ -94,11 +96,13 @@ const initMapbox = () => {
                 /* For each feature in the GeoJSON object above: */
                 markers.features.forEach(function(marker) {
                     /* Create a div element for the marker. */
-                    const el = document.createElement('div');
+                    //const el = document.getElementsByClassName('map-markers');
+                    const el = document.getElementById(`marker-${marker.properties.id}`);
                     if (marker.properties.id === id) {
-                        el.className = 'marker-active';
+                        el.classList.add('marker-active');
+                        el.classList.remove('marker');
                     } else {
-                        el.className = 'marker';
+                        el.classList.remove('marker-active');
                     }
                     /**
                      * Create a marker using the div element

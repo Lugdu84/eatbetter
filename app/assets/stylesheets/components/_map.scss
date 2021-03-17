@@ -6,22 +6,19 @@
   //position: relative;
 }
 
-.marker {
+.all-marker {
   border: none;
   cursor: pointer;
   height: 32px;
   width: 32px;
-  background-image: url("Picto/fruit.png");
   background-position: center;
   background-color: rgba(0, 0, 0, 0);
 }
 
+.marker {
+  background-image: url("Picto/fruit.png");
+}
+
 .marker-active {
-  border: none;
-  cursor: pointer;
-  height: 32px;
-  width: 32px;
   background-image: url("Picto/viande.png");
-  background-position: center;
-  background-color: rgba(0, 0, 0, 0);
 }
