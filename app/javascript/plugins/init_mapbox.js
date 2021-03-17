@@ -100,7 +100,6 @@ const initMapbox = () => {
                     const el = document.getElementById(`marker-${marker.properties.id}`);
                     if (marker.properties.id === id) {
                         el.classList.add('marker-active');
-                        el.classList.remove('marker');
                     } else {
                         el.classList.remove('marker-active');
                     }
