@@ -9,8 +9,19 @@
 .marker {
   border: none;
   cursor: pointer;
-  height: 56px;
-  width: 56px;
-  background-image: url("/Picto/fleur.png");
+  height: 32px;
+  width: 32px;
+  background-image: url("Picto/fruit.png");
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.marker-active {
+  border: none;
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  background-image: url("Picto/viande.png");
+  background-position: center;
   background-color: rgba(0, 0, 0, 0);
 }
