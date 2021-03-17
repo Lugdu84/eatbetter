@@ -1,3 +1,14 @@
 <% @farms.each do |farm| %>
   <%= farm.name %>
 <% end %>
+<div class="cards-farm">
+  <% @farms.each do |farm|%>
+    <div class="card-product" id="<%= farm.id %>">
+      <%= image_tag farm.photo1 %>
+      <div class="card-product-infos">
+        <h2> <%= farm.address %> </h2>
+        <p> <%= farm.content %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
