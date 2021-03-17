@@ -86,8 +86,12 @@ const initMapbox = () => {
                      * Create a marker using the div element
                      * defined above and add it to the map.
                      **/
+                    const popup = new mapboxgl.Popup({
+                        closeButton: false,
+                    }).setHTML(marker.properties.infoWindow);
                     new mapboxgl.Marker(el, { offset: [0, 0] })
                         .setLngLat(marker.geometry.coordinates)
+                        .setPopup(popup)
                         .addTo(map);
                 });
             }
