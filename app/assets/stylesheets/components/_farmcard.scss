@@ -12,7 +12,7 @@
 }
 
 .farm-images > img:not(.farm-user) {
-  height: 200px;
+  height: 100%;
   width: 100%;
   object-fit: cover;
   border-radius: 20px;
@@ -28,7 +28,7 @@
   position: absolute;
   right: 16px;
   bottom: -20px;
-  width: 40px;
+  width: 80px;
 }
 
 // .card-trip p {
