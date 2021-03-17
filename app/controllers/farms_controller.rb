@@ -7,6 +7,7 @@ class FarmsController < ApplicationController
       sql_query = "category LIKE :category"
       farms_where = Farm.where(sql_query, category: "%#{params[:fruits]}%")
       @farms = farms_where.near(params[:query], 100)
+      #TODO implements multi requets !
     else
       @farms = Farm.near(params[:query], 100)
     end
