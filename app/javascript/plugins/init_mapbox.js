@@ -56,14 +56,42 @@ const initMapbox = () => {
                             })
                             if (marker[0].layer.id === "markers")
                             {
-                                //TODO implements interactions with cards
+                                const activeItem = document.getElementsByClassName('card-active');
+                                if (activeItem[0]) {
+                                    activeItem[0].classList.remove('card-active');
+                                }
+                                const cardActive = document.getElementById(marker[0].properties.id);
+                                cardActive.classList.add('card-active');
+                                //TODO implements take it first
+
                             }
                         });
                     }
                 )
             });
-        }
 
+        }
+        const cards = document.querySelector('.cards-farm');
+        cards.onscroll = (e) => {
+            markers.features.forEach ((marker) => {
+                const id = marker.properties.id;
+                if (isElementOnScreen(id)){
+                    map.flyTo({
+                        center: marker.geometry.coordinates,
+                    });
+                    //TODO Implement change icon of markerActive
+                }
+            });
+
+        };
+    }
+
+    const isElementOnScreen = (id) => {
+        const element = document.getElementById(id);
+        const bounds = element.getBoundingClientRect();
+        //console.log(bounds.left);
+        //console.log(bounds.right);
+        return (bounds.left < window.innerWidth / 2) && (bounds.right > window.innerWidth / 2) ;
     }
 };
 

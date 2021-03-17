@@ -1,12 +1,12 @@
 
-<div class="banner" style="background-image: url(<%= asset_url('') %>);">
+<div class="banner" style="background-image: url(<%= asset_url('fond-home-eatbetter') %>);">
   <div class="container">
     <h1>Trouver votre producteur à coté de chez vous</h1>
     <%= render 'shared/search' %>
       <div class="checkbox-pictohome">
         <form action="/action_page.php">
           <input type="checkbox" id="Légumes" name="légumes" value="">
-          <label for="légumes"> Légumes</label>
+          <label for="légumes"> Légumes</label><div class="legume"></div>
           <input type="checkbox" id="Fruits" name="Fruits" value="">
           <label for="Fruits"> Fruits</label>
           <input type="checkbox" id="Fleurs" name="Fleurs" value="">
@@ -21,3 +21,4 @@
         </form>
       </div>
   </div>
+</div>

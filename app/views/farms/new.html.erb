@@ -1,0 +1,14 @@
+
+<div class="container">
+  <h5>Nouveau producteur :</h5>
+  <%= simple_form_for @farm do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :content %>
+    <%= f.input :tel %>
+    <%= f.input :email %>
+    <%= f.association :user %>
+    <%= f.input :photos, as: :file, input_html: {multiple: true} %>
+    <%= f.submit "Créer", class: "btn btn-primary" %>
+  <% end %>
+</div>

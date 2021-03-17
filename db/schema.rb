@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_223119) do
+ActiveRecord::Schema.define(version: 2021_03_17_074139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,11 @@ ActiveRecord::Schema.define(version: 2021_03_15_223119) do
     t.float "latitude"
     t.float "longitude"
     t.string "category"
+    t.string "name"
+    t.string "photo1"
+    t.string "photo2"
+    t.string "photo3"
+    t.string "photo_owner"
     t.index ["user_id"], name: "index_farms_on_user_id"
   end
 
