@@ -5,3 +5,20 @@
 #map {
   //position: relative;
 }
+
+.all-marker {
+  border: none;
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.marker {
+  background-image: url(https://res.cloudinary.com/dwtp8jc27/image/upload/v1616002639/EatBetter/markers/icone-distribution_szzodq.png);
+}
+
+.marker-active {
+  background-image: url(https://res.cloudinary.com/dwtp8jc27/image/upload/v1616002690/EatBetter/markers/images_uojj2s.jpg);
+}

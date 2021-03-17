@@ -20,8 +20,8 @@ class FarmsController < ApplicationController
           id: farm.id,
           category: farm.category,
           address: farm.address,
-          info_window: render_to_string(
-            partial: "farms/info_window",
+          infoWindow: render_to_string(
+            partial: "info_window",
             locals: { farm: farm }
           )
         }

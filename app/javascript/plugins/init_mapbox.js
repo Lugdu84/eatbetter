@@ -23,74 +23,118 @@ const initMapbox = () => {
         if (markers.features.length > 0 )
         {
             map.on('load', function (e) {
+                /*map.addSource('markers', {
+                    type: 'geojson',
+                    data: markers,
+                    // cluster: true,
+                    // clusterMaxZoom: 14,
+                    //clusterRadius: 100
+                });*/
+                map.addLayer({
+                    'id': 'markers',
+                    'type': 'circle',
+                    'source': {
+                        'type': 'geojson',
+                        'data': markers
+                    }
+                });
+                map.on('click', 'markers', function (e) {
+                    map.flyTo({
+                        center: e.features[0].geometry.coordinates
+                    });
+                });
+
+                //map.jumpTo({center: markers.features[0].geometry.coordinates});
+                map.on('click', function (e) {
+                    const marker = map.queryRenderedFeatures(e.point, {
+
+                    })
+                    if (marker[0].layer.id === "markers")
+                    {
+                        const activeItem = document.getElementsByClassName('card-active');
+                        if (activeItem[0]) {
+                            activeItem[0].classList.remove('card-active');
+                        }
+                        const cardActive = document.getElementById(marker[0].properties.id);
+                        cardActive.classList.add('card-active');
+                        const bounds = cardActive.getBoundingClientRect();
+                        cardActive.scrollIntoView();
+                        //TODO implements take center in parentNode
+                    }
+                });
+                /*
                 map.loadImage(
-                    'https://res.cloudinary.com/dwtp8jc27/image/upload/v1615743453/EatBetter/markers/picto_wjkzds.png',
+                    'https://res.cloudinary.com/dwtp8jc27/image/upload/v1615986610/EatBetter/markers/fruit_tckobz.png',
                     function (error, image) {
                         if (error) throw error;
                         map.addImage('custom-marker', image);
-                        map.addSource('markers', {
-                            type: 'geojson',
-                            data: markers,
-                           // cluster: true,
-                           // clusterMaxZoom: 14,
-                            //clusterRadius: 100
-                        });
-                        map.addLayer({
-                            'id': 'markers',
-                            'type': 'symbol',
-                            'source': 'markers',
-                            'layout': {
-                                'icon-image': 'custom-marker'
-                            }
-                        });
-                        map.on('click', 'markers', function (e) {
-                            map.flyTo({
-                                center: e.features[0].geometry.coordinates
-                            });
-                        });
 
-                        //map.jumpTo({center: markers.features[0].geometry.coordinates});
-                        map.on('click', function (e) {
-                            const marker = map.queryRenderedFeatures(e.point, {
-
-                            })
-                            if (marker[0].layer.id === "markers")
-                            {
-                                const activeItem = document.getElementsByClassName('card-active');
-                                if (activeItem[0]) {
-                                    activeItem[0].classList.remove('card-active');
-                                }
-                                const cardActive = document.getElementById(marker[0].properties.id);
-                                cardActive.classList.add('card-active');
-                                //TODO implements take it first
-
-                            }
-                        });
                     }
-                )
+                )*/
             });
 
+
+            const addMarkers = () => {
+                /* For each feature in the GeoJSON object above: */
+                markers.features.forEach(function(marker) {
+                    /* Create a div element for the marker. */
+                    const el = document.createElement('div');
+                    el.id =`marker-${marker.properties.id}`;
+                    el.className = 'map-markers';
+                    el.classList.add('all-marker', 'marker');
+                    /**
+                     * Create a marker using the div element
+                     * defined above and add it to the map.
+                     **/
+                    const popup = new mapboxgl.Popup({
+                        closeButton: false,
+                    }).setHTML(marker.properties.infoWindow);
+                    new mapboxgl.Marker(el, { offset: [0, 0] })
+                        .setLngLat(marker.geometry.coordinates)
+                        .setPopup(popup)
+                        .addTo(map);
+                });
+            }
+
+            const filterMarkers = (id) => {
+                /* For each feature in the GeoJSON object above: */
+                markers.features.forEach(function(marker) {
+                    /* Create a div element for the marker. */
+                    //const el = document.getElementsByClassName('map-markers');
+                    const el = document.getElementById(`marker-${marker.properties.id}`);
+                    if (marker.properties.id === id) {
+                        el.classList.add('marker-active');
+                    } else {
+                        el.classList.remove('marker-active');
+                    }
+                    /**
+                     * Create a marker using the div element
+                     * defined above and add it to the map.
+                     **/
+                    new mapboxgl.Marker(el, { offset: [0, 0] })
+                        .setLngLat(marker.geometry.coordinates)
+                        .addTo(map);
+                });
+            }
+            addMarkers();
+            const cards = document.querySelector('.cards-farm');
+            cards.onscroll = (e) => {
+                markers.features.forEach ((marker) => {
+                    const id = marker.properties.id;
+                    if (isElementOnScreen(id)){
+                        map.flyTo({
+                            center: marker.geometry.coordinates,
+                        });
+                        filterMarkers(marker.properties.id);
+                    }
+                });
+            };
         }
-        const cards = document.querySelector('.cards-farm');
-        cards.onscroll = (e) => {
-            markers.features.forEach ((marker) => {
-                const id = marker.properties.id;
-                if (isElementOnScreen(id)){
-                    map.flyTo({
-                        center: marker.geometry.coordinates,
-                    });
-                    //TODO Implement change icon of markerActive
-                }
-            });
-
-        };
     }
 
     const isElementOnScreen = (id) => {
         const element = document.getElementById(id);
         const bounds = element.getBoundingClientRect();
-        //console.log(bounds.left);
-        //console.log(bounds.right);
         return (bounds.left < window.innerWidth / 2) && (bounds.right > window.innerWidth / 2) ;
     }
 };
