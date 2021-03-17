@@ -1,17 +1,31 @@
-<ul>
-  <ol> <%= @farm.user.first_name %> <%= @farm.user.last_name %> </ol>
-  <ol><%= @farm.name %></ol>
-  <ol><%= @farm.category %></ol>
-</ul>
-
-<ul>
-  <li><%= @farm.address %></li>
-  <li><%= @farm.tel %></li>
-  <li><%= @farm.email %></li>
-  <li><%= @farm.content %></li>
-</ul>
 <% @farm.products.each do |product| %>
   <%= product.name %>
   <%= product.price %>
   <%= product.units %>
 <% end %>
+
+<div class="farm-images">
+  <%= image_tag @farm.photo1 %>
+  <%= image_tag @farm.photo_owner, class: "farm-user avatar-bordered" %>
+</div>
+<div class="farm-rating d-flex mt-3 justify-content-center">
+  <% 3.times do %>
+    <i class="fas fa-star colored"></i>
+  <% end %>
+  <% (5 - 3).times do %>
+    <i class="fas fa-star"></i>
+  <% end %>
+</div>
+<div class="farm-description mt-3">
+<h3 class="mb-0"><%= @farm.name %></h3>
+<p class="mb-0"><%= @farm.user.first_name %> <%= @farm.user.last_name %></p>
+<p class="mb-0"><%= @farm.category %></p>
+<p class="mb-0"><%= @farm.email %></p>
+<p class="mb-0"><%= @farm.tel %></p>
+<p><%= @farm.content %></p>
+</div>
+
+<div class='d-flex align-items-center'>
+  <i class="fas fa-map-marker-alt"></i>
+  <h1 class='ml-2 mb-0'><%= @farm.address %></h1>
+</div>

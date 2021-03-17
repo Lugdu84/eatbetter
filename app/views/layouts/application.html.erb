@@ -15,7 +15,8 @@
     <%= image_tag "fond-home-eatbetter.jpg", id:"banner-image" if @pages %>
     <%= render 'shared/navbar' if !@farms %>
     <%= render 'shared/flashes' %>
-
-    <%= yield %>
+    <div class='container' >
+      <%= yield %>
+    </div>
   </body>
 </html>
