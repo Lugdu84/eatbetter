@@ -2,7 +2,6 @@ class FarmsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show index listFarms]
 
   def index
-
     coords = Geocoder.coordinates(params[:query])
     if params[:category].present?
       sql_query = "category LIKE :category"
