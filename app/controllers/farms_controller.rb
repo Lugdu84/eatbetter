@@ -2,8 +2,14 @@ class FarmsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show index listFarms]
 
   def index
-    @farms = Farm.near(params[:query], 100)
     coords = Geocoder.coordinates(params[:query])
+    if params[:category].present?
+      sql_query = "category LIKE :category"
+      farms_where = Farm.where(sql_query, category: "%#{params[:category]}%")
+      @farms = farms_where.near(params[:query], 100)
+    else
+      @farms = Farm.near(params[:query], 100)
+    end
     @markers = {
       type: 'FeatureCollection',
       coordinates: coords,

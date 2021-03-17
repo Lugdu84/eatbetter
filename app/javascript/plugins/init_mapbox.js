@@ -13,7 +13,7 @@ const initMapbox = () => {
         const map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v10',
-            zoom: 10,
+            zoom: 9,
             center: [lat, lng],
             scrollZoom: false
         });
