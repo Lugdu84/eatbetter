@@ -49,7 +49,7 @@ puts "Creating farms..."
     photo1: "Producteurs/#{i + 1}/1.jpg",
     photo2: "Producteurs/#{i + 1}/2.jpg",
     photo3: "Producteurs/#{i + 1}/3.jpg",
-    photo_owner: "Producteurs/#{i + 1}/0#{i + 1}.jpg"
+    photo_owner: "Producteurs/#{i + 1}/0#{i + 1}.png"
   )
   farms << farm
   puts "farm #{i} create"
