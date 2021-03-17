@@ -1,5 +1,5 @@
 class FarmsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[show index]
+  skip_before_action :authenticate_user!, only: %i[show index listFarms]
 
   def index
     @farms = Farm.near(params[:query], 100)
@@ -27,6 +27,10 @@ class FarmsController < ApplicationController
         }
       }
     end
+  end
+
+  def listFarms
+    @farms = Farm.all
   end
 
   def show
