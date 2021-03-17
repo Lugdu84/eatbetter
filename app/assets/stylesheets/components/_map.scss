@@ -5,3 +5,12 @@
 #map {
   //position: relative;
 }
+
+.marker {
+  border: none;
+  cursor: pointer;
+  height: 56px;
+  width: 56px;
+  background-image: url("/Picto/fleur.png");
+  background-color: rgba(0, 0, 0, 0);
+}
