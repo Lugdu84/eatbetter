@@ -1,0 +1,56 @@
+.farm {
+  background-color: #fff;
+}
+.farm-images-list {
+  background: white;
+  position: relative;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom:20px;
+}
+.farm-images-list > img:not(.farm-user) {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px 20px 0px 0px;
+}
+.farm-description{
+  padding: 8px;
+}
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+ border: 0;
+ line-height: 2px;
+}
+
+.farm-user {
+  position: absolute;
+  right: 16px;
+  bottom: -20px;
+  width: 80px;
+}
+.first-name{
+  color: #2C3A64;
+  font-size: 20px;
+  font-weight:bold;
+}
+.category {
+  color: #2C3A64;
+}
+
+.address{
+  color: #2C3A64;
+  font-size: 20px;
+  font-weight:bold;
+}
+.content{
+  color: #2C3A64;
+  font-size: 15px;
+}
+.farm:hover{
+border: solid 3px #FFA412;
+border-radius: 0px 0px 20px 20px;
+
+
+}

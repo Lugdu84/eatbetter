@@ -1,11 +1,17 @@
-<div class="cards-farm">
-  <% @farms.each do |farm|%>
-    <div class="card-product" id="<%= farm.id %>">
-      <%= image_tag farm.photo1 %>
-      <div class="card-product-infos">
-        <h2> <%= farm.address %> </h2>
-        <p> <%= farm.content %></p>
+<%= render 'shared/navbar' %>
+<%= render 'shared/search' %>
+<div class="content">
+  <div class="farm-">
+    <% @farms.each do |farm|%>
+      <div class="farm-images-list" id="<%= farm.id %>">
+        <%= image_tag farm.photo1 %>
+          <%= image_tag farm.photo_owner, class: "farm-user avatar-bordered" %>
+        <div class="farm-description">
+            <p class="first-name"> <%= farm.user.first_name %></p>
+            <p class="category"> Producteur de <%= farm.category %> - <strong><%= farm.address %></strong></p>
+          <p class="content"> <%= farm.content %></p>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
