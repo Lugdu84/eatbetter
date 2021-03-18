@@ -17,6 +17,8 @@ class FarmsController < ApplicationController
       features: []
       }
     @farms.each do |farm|
+      reviews = Review.select { |m| m.farm == farm }
+      rating = Review.where(farm: farm).average(:rating).to_i
       @markers[:features] << {
         type: "Feature",
         geometry: {
@@ -28,7 +30,7 @@ class FarmsController < ApplicationController
           address: farm.address,
           infoWindow: render_to_string(
             partial: "info_window",
-            locals: { farm: farm }
+            locals: { farm: farm, reviews: reviews, rating: rating }
           )
         }
       }
@@ -41,6 +43,9 @@ class FarmsController < ApplicationController
 
   def show
     @farm = Farm.find(params[:id])
+    @reviews = Review.select { |m| m.farm == @farm }
+    @rating = Review.where(farm: @farm).average(:rating).to_i
+
   end
 
   def new

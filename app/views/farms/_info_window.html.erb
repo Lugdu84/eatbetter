@@ -1,3 +1,16 @@
-<%= image_tag farm.photo_owner, class: "avatar" %>
-<p> <%= farm.user.first_name %></p>
-<p> <%= farm.tag_list %> !</p>
+<div class="popup-farm">
+  <div>
+    <%= image_tag farm.photo_owner, class: "avatar" %>
+    <p> <%= farm.user.first_name %></p>
+  </div>
+  <%= image_tag "Picto/#{farm.tag_list}.png" %>
+</div>
+<div class="farm-rating d-flex justify-content-center">
+  (<%= reviews.count %>)
+  <% rating.times do %>
+    <i class="fas fa-star colored mt-1"></i>
+  <% end %>
+  <% (5 - rating).times do %>
+    <i class="fas fa-star mt-1"></i>
+  <% end %>
+</div>

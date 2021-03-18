@@ -6,10 +6,14 @@
 <div class="cards-farm">
   <% @farms.each do |farm|%>
     <div class="card-product" id="<%= farm.id %>">
-      <%= image_tag farm.photo1 %>
+      <%= image_tag farm.photo1, class: "card-product-img" %>
       <div class="card-product-infos">
-        <h2> <%= farm.address %> </h2>
+        <h2> <%= farm.user.first_name %> </h2>
+        <h4> <%= farm.name %></h4>
         <p> <%= farm.content %></p>
+      </div>
+      <div class="favorite-farm">
+        <i class="far fa-heart"></i>
       </div>
     </div>
   <% end %>

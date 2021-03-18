@@ -7,6 +7,7 @@ class User < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   has_one_attached :photo
   has_many :farms
+  has_many :reviews
 
   def coordinates
     [longitude, latitude]

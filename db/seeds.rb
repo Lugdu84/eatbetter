@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-
+puts "Destroy all reviews..."
+Review.destroy_all
 puts "Destroy all products..."
 Product.destroy_all
 puts "Destroy all farms..."
@@ -20,6 +21,7 @@ cities = %w[marseille, aubagne cassis lascours allauch napollon auriol peypin ce
 categories = %w[fruits fleurs fromage viandes poissons légumes]
 users = []
 farms = []
+users_for_rating = []
 10.times do |i|
   user = User.create!(
     first_name: Faker::Name::first_name,
@@ -28,7 +30,7 @@ farms = []
     address: cities[i],
     password: 'azerty'
     )
-  puts "Create #{i} user..."
+  puts "Create #{i + 1} user..."
   users << user
 end
 puts "#{users.count} users as been creating..."
@@ -54,9 +56,29 @@ puts "Creating farms..."
   farm.tag_list.add(categories.sample, parse: true)
   farm.save
   farms << farm
-  puts "farm #{i} create"
+  puts "farm #{i + 1} create"
 end
 puts "create farms OK"
+
+50.times do |i|
+  user = User.create!(
+    first_name: Faker::Name::first_name,
+    last_name: Faker::Name::last_name,
+    email: Faker::Internet::email,
+    address: cities[i],
+    password: 'azerty'
+  )
+  puts "#{i + 1} - #{user.first_name} as been created..."
+
+  puts "Create #{i + 1} user... for rating"
+  review = Review.create!(
+    rating: rand(1..5),
+    content: Faker::Lorem::paragraph,
+    user: user,
+    farm: farms.sample
+  )
+  puts " #{i + 1 } -#{user.first_name}, rating for : #{review.farm.name}, with #{review.rating}"
+end
 
 
 =begin
