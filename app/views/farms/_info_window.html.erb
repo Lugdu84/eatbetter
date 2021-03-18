@@ -6,11 +6,11 @@
   <%= image_tag "Picto/#{farm.tag_list}.png" %>
 </div>
 <div class="farm-rating d-flex justify-content-center">
-
-  <% 3.times do %>
-    <i class="fas fa-star colored"></i>
+  (<%= reviews.count %>)
+  <% rating.times do %>
+    <i class="fas fa-star colored mt-1"></i>
   <% end %>
-  <% (5 - 3).times do %>
-    <i class="fas fa-star"></i>
+  <% (5 - rating).times do %>
+    <i class="fas fa-star mt-1"></i>
   <% end %>
 </div>
