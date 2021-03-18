@@ -44,7 +44,6 @@ const initMapbox = () => {
                     });
                 });
 
-                //map.jumpTo({center: markers.features[0].geometry.coordinates});
                 map.on('click', function (e) {
                     const marker = map.queryRenderedFeatures(e.point, {
 
@@ -59,20 +58,10 @@ const initMapbox = () => {
                         cardActive.classList.add('card-active');
                         const bounds = cardActive.getBoundingClientRect();
                         cardActive.scrollIntoView();
-                        //TODO implements take center in parentNode
+
                     }
                 });
-                /*
-                map.loadImage(
-                    'https://res.cloudinary.com/dwtp8jc27/image/upload/v1615986610/EatBetter/markers/fruit_tckobz.png',
-                    function (error, image) {
-                        if (error) throw error;
-                        map.addImage('custom-marker', image);
-
-                    }
-                )*/
             });
-
 
             const addMarkers = () => {
                 /* For each feature in the GeoJSON object above: */
@@ -122,10 +111,17 @@ const initMapbox = () => {
                 markers.features.forEach ((marker) => {
                     const id = marker.properties.id;
                     if (isElementOnScreen(id)){
+                        // Set card Active
+                        const activeItem = document.getElementsByClassName('card-active');
+                        if (activeItem[0]) {
+                            activeItem[0].classList.remove('card-active');
+                        }
+                        const cardActive = document.getElementById(id);
+                        cardActive.classList.add('card-active');
                         map.flyTo({
                             center: marker.geometry.coordinates,
                         });
-                        filterMarkers(marker.properties.id);
+                        filterMarkers(id);
                     }
                 });
             };

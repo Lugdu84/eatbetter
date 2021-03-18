@@ -16,8 +16,8 @@ puts "Destroy all users..."
 User.destroy_all
 
 puts 'Create users...'
-cities = %w[marseille, aubagne, cassis, lascours, allauch, napollon, auriol, peypin, ceyreste, cadolive]
-categories = %w[fruits fleurs]
+cities = %w[marseille, aubagne cassis lascours allauch napollon auriol peypin ceyreste cadolive]
+categories = %w[fruits fleurs fromage viandes poissons légumes]
 users = []
 farms = []
 10.times do |i|
@@ -41,7 +41,7 @@ puts "Creating farms..."
   farm = Farm.create!(
     user: users[i],
     address: cities[i],
-    category: categories.sample,
+    #category: categories.sample,
     tel: Faker::PhoneNumber.cell_phone,
     email: Faker::Internet.email,
     content: Faker::Lorem::paragraph,
@@ -51,6 +51,8 @@ puts "Creating farms..."
     photo3: "Producteurs/#{i + 1}/3.jpg",
     photo_owner: "Producteurs/#{i + 1}/0#{i + 1}.png"
   )
+  farm.tag_list.add(categories.sample, parse: true)
+  farm.save
   farms << farm
   puts "farm #{i} create"
 end
