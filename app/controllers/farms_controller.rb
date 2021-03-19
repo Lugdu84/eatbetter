@@ -11,6 +11,8 @@ class FarmsController < ApplicationController
       coords = Geocoder.coordinates('Lyon')
       @farms = Farm.near('Lyon', 100)
     end
+    @querys = params.keys
+    @address = params[:query]
 
     @markers = {
       type: 'FeatureCollection',
@@ -39,7 +41,13 @@ class FarmsController < ApplicationController
   end
 
   def listFarms
-    @farms = Farm.all
+    @address = params[:address]
+    coords = Geocoder.coordinates(@address)
+    categories = params[:query]
+
+    @farms = Farm.tagged_with(categories, any: true).near(@address, 100)
+    @querys = { fleurs: 'on' }
+    #@querys = categories
   end
 
   def show
