@@ -1,19 +1,17 @@
-<%= render 'shared/navbar' %>
 <div class="content pr-3 pl-3">
   <div class="product-">
-    <div class="product-images-list" >
-      <%= image_tag "mandarines.jpeg" %>
+    <div class = "product-images-list" >
+      <%= image_tag "#{@product.photo}" %>
     </div>
     <div class="product-description-list">
       <h2><%= @product.name %></h2>
       <p class="content"> <%= @product.content %></p>
       <div class="p-u-products">
-      <p class="units"> <%= @product.units %> </p>
-      <p class="price"> <%= @product.price %> € </p>
-      <br>
-      <a class="btn btn-info" href="#">Ajouter au panier</a>
+        <p class="units"> <%= @product.units %> </p>
+        <p class="price"> <%= @product.price %> € </p>
+        <br>
+        <a class="btn btn-info" href="#">Ajouter au panier</a>
+      </div>
     </div>
   </div>
-
 </div>
-<%= render'shared/footer' %>

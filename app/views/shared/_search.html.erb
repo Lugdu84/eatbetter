@@ -1,8 +1,8 @@
 <div class="containersearchbar">
   <div class="search-bar">
     <%= form_tag listFarms_path, method: :get, class: "search-geo-controls input-group rounded search_style" do %>
-      <div><%= text_field_tag :address,
-        params[:address],
+      <div><%= text_field_tag :query,
+        params[:query],
         class: "form-control rounded size-text",
         placeholder: "Choisissez votre ville"
       %></div>
