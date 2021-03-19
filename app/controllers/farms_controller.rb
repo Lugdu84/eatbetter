@@ -3,16 +3,16 @@ class FarmsController < ApplicationController
 
   def index
     @navbar = false
-    if params[:query].present?
-      coords = Geocoder.coordinates(params[:query])
+    if params[:address].present?
+      coords = Geocoder.coordinates(params[:address])
       categories = params.keys
-      @farms = Farm.tagged_with(categories, any: true).near(params[:query], 100)
+      @farms = Farm.tagged_with(categories, any: true).near(params[:address], 100)
     else
       coords = Geocoder.coordinates('Lyon')
       @farms = Farm.near('Lyon', 100)
     end
     @querys = params.keys
-    @address = params[:query]
+    @address = params[:address]
 
     @markers = {
       type: 'FeatureCollection',
@@ -43,7 +43,7 @@ class FarmsController < ApplicationController
   def listFarms
     @address = params[:address]
     coords = Geocoder.coordinates(@address)
-    categories = params[:query]
+    categories = params.keys
 
     @farms = Farm.tagged_with(categories, any: true).near(@address, 100)
     @querys = { fleurs: 'on' }
