@@ -2,6 +2,7 @@ class FarmsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show index listFarms]
 
   def index
+    @navbar = false
     if params[:query].present?
       coords = Geocoder.coordinates(params[:query])
       categories = params.keys
