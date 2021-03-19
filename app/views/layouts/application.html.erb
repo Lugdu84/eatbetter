@@ -12,13 +12,13 @@
   </head>
 
   <body>
-    <% if farms_path %>
-      <%= yield %>
-    <% else %>
-      <%= render 'shared/navbar' %>
+    <% if @navbar %>
+      <%= render 'shared/navbar'%>
       <div class='container' >
         <%= yield %>
       </div>
+    <% else %>
+      <%= yield %>
     <% end %>
     <%= render 'shared/flashes' %>
   </body>
