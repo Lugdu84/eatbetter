@@ -5,6 +5,7 @@
 </div>
 <div class="cards-farm">
   <% @farms.each do |farm|%>
+    <%= link_to farm_path(farm) do %>
     <div class="card-product" id="<%= farm.id %>">
       <%= image_tag farm.photo1, class: "card-product-img" %>
       <div class="card-product-infos">
@@ -16,6 +17,7 @@
         <i class="far fa-heart"></i>
       </div>
     </div>
+  <% end %>
   <% end %>
 </div>
 <%=  link_to 'listes', listFarms_path(query: @querys, address: @address), class: 'btn btn-primary ml-3' %>

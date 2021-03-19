@@ -2,15 +2,18 @@
 <div class="content">
   <div class="farm-">
     <% @farms.each do |farm|%>
-      <div class="farm-images-list" id="<%= farm.id %>">
-        <%= image_tag farm.photo1 %>
+      <%= link_to farm_path(farm) do %>
+        <div class="farm-images-list" id="<%= farm.id %>">
+          <%= image_tag farm.photo1 %>
           <%= image_tag farm.photo_owner, class: "farm-user avatar-bordered" %>
-        <div class="farm-description">
+          <div class="farm-description">
             <p class="first-name"> <%= farm.user.first_name %></p>
             <p class="category"> Producteur de <%= farm.category %> - <strong><%= farm.address %></strong></p>
-          <p class="content"> <%= farm.content %></p>
+            <p class="content"> <%= farm.content %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
+<%=  link_to 'listes', farms_path(query: @address), class: 'btn btn-primary ml-3' %>
