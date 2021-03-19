@@ -1,17 +1,8 @@
-<%= render 'shared/navbar' %>
 <div class="content pr-3 pl-3">
   <div class="farm-">
     <% @farms.each do |farm|%>
-  <!--   <div class="farm-rating d-flex justify-content-center">
-      (<%= @reviews.count %>)
-      <% @rating.times do %>
-      <i class="fas fa-star colored mt-1"></i>
-      <% end %>
-      <% (5 - @rating).times do %>
-      <i class="fas fa-star mt-1"></i>
-      <% end %>
-    </div> -->
-    <div class="farm-images-list" id="<%= farm.id %>">
+      <%= link_to farm_path(farm) do %>
+        <div class="farm-images-list" id="<%= farm.id %>">
       <%= image_tag farm.photo1 %>
       <%= image_tag farm.photo_owner, class: "farm-user-list avatar-bordered" %>
       <div class="farm-description-list">
@@ -20,6 +11,8 @@
         <p class="content-description mb-0"><%= farm.content %></p>
       </div>
     </div>
+      <% end %>
     <% end %>
   </div>
 </div>
+<%=  link_to 'Index', farms_path(query: @address, fleurs: 'on'), class: 'btn btn-primary ml-3' %>
