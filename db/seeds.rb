@@ -19,6 +19,7 @@ User.destroy_all
 puts 'Create users...'
 cities = %w[marseille, aubagne cassis lascours allauch napollon auriol peypin ceyreste cadolive]
 categories = %w[fruits fleurs fromage viandes poissons légumes]
+products = %w[tomate oignon courgette ail échalotte pomme carotte poire clémentine orange]
 users = []
 farms = []
 users_for_rating = []
@@ -57,8 +58,19 @@ puts "Creating farms..."
   farm.save
   farms << farm
   puts "farm #{i + 1} create"
+  puts "Creating products for farm #{farm.name}"
+  10.times do |i|
+       Product.create!(
+         price: 1,
+         name: products[i],
+         units: 'kg',
+         farm: farm
+       )
+  end
 end
 puts "create farms OK"
+
+
 
 50.times do |i|
   user = User.create!(
@@ -81,15 +93,6 @@ puts "create farms OK"
 end
 
 
-=begin
-20.times do |i|
-  Product.create!(
-    price: 1,
-    name: 'tomate',
-    units: 'kg',
-    farm: Farm.first
-  )
-end
-=end
+
 
 puts "End of seed..."
