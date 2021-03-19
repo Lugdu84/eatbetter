@@ -39,6 +39,10 @@ class FarmsController < ApplicationController
 
   def listFarms
     @farms = Farm.all
+      @farms.each do |farm|
+      @reviews = Review.select { |m| m.farm == farm }
+      @rating = Review.where(farm: farm).average(:rating).to_i
+    end
   end
 
   def show

@@ -1,16 +1,25 @@
 <%= render 'shared/navbar' %>
-<div class="content">
+<div class="content pr-3 pl-3">
   <div class="farm-">
     <% @farms.each do |farm|%>
-      <div class="farm-images-list" id="<%= farm.id %>">
-        <%= image_tag farm.photo1 %>
-          <%= image_tag farm.photo_owner, class: "farm-user avatar-bordered" %>
-        <div class="farm-description">
-            <p class="first-name"> <%= farm.user.first_name %></p>
-            <p class="category"> Producteur de <%= farm.category %> - <strong><%= farm.address %></strong></p>
-          <p class="content"> <%= farm.content %></p>
-        </div>
+  <!--   <div class="farm-rating d-flex justify-content-center">
+      (<%= @reviews.count %>)
+      <% @rating.times do %>
+      <i class="fas fa-star colored mt-1"></i>
+      <% end %>
+      <% (5 - @rating).times do %>
+      <i class="fas fa-star mt-1"></i>
+      <% end %>
+    </div> -->
+    <div class="farm-images-list" id="<%= farm.id %>">
+      <%= image_tag farm.photo1 %>
+      <%= image_tag farm.photo_owner, class: "farm-user-list avatar-bordered" %>
+      <div class="farm-description-list">
+        <p class="first-name mb-0"> <%= farm.user.first_name %> - Producteur de <%= image_tag "Picto/#{farm.tag_list}.png" %></p>
+        <p class="address mb-0"><strong><%= farm.address %></strong></p>
+        <p class="content-description mb-0"><%= farm.content %></p>
       </div>
+    </div>
     <% end %>
   </div>
 </div>
