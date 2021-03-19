@@ -45,9 +45,11 @@ class FarmsController < ApplicationController
     categories = params.keys
 
     @farms = Farm.tagged_with(categories, any: true).near(@address, 100)
+    @reviews = []
+    @ratings = []
     @farms.each do |farm|
-      @reviews = Review.select { |m| m.farm == farm }
-      @rating = Review.where(farm: farm).average(:rating).to_i
+      @reviews << Review.select { |m| m.farm == farm }
+      @ratings << Review.where(farm: farm).average(:rating).to_i
     end
   end
 
@@ -55,8 +57,8 @@ class FarmsController < ApplicationController
     @farm = Farm.find(params[:id])
     @reviews = Review.select { |m| m.farm == @farm }
     @rating = Review.where(farm: @farm).average(:rating).to_i
-
   end
+
 
   def new
     @farm = Farm.new

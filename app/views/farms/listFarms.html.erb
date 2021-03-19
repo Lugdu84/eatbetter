@@ -1,6 +1,6 @@
 <div class="content pr-3 pl-3">
   <div class="farm-">
-    <% @farms.each do |farm|%>
+    <% @farms.each_with_index do |farm, i|%>
       <%= link_to farm_path(farm) do %>
         <div class="farm-images-list" id="<%= farm.id %>">
       <%= image_tag farm.photo1 %>
@@ -8,11 +8,11 @@
 
       <div class="farm-description-list">
         <div class="farm-rating d-flex justify-content-center">
-          (<%= @reviews.count %>)
-          <% @rating.times do %>
+          (<%= @reviews[i].count %>)
+          <% @ratings[i].times do %>
             <i class="fas fa-star colored mt-1"></i>
           <% end %>
-          <% (5 - @rating).times do %>
+          <% (5 - @ratings[i]).times do %>
             <i class="fas fa-star mt-1"></i>
           <% end %>
         </div>
