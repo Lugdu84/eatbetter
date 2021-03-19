@@ -95,4 +95,4 @@ end
 
 
 
-puts "End of seed..."
+puts "End of seeds..."
