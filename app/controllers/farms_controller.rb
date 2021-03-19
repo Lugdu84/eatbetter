@@ -47,6 +47,10 @@ class FarmsController < ApplicationController
 
     @farms = Farm.tagged_with(categories, any: true).near(@address, 100)
     @querys = { fleurs: 'on' }
+    @farms.each do |farm|
+      @reviews = Review.select { |m| m.farm == farm }
+      @rating = Review.where(farm: farm).average(:rating).to_i
+    end
     #@querys = categories
   end
 
