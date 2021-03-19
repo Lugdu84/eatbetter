@@ -11,25 +11,20 @@
   <i class="fas fa-star mt-1"></i>
   <% end %>
 </div>
-<div class="farm-description mt-3">
-  <h3 class="mb-0"><%= @farm.name %></h3>
-  <p class="mb-0"><%= @farm.user.first_name %> <%= @farm.user.last_name %></p>
-  <p class="mb-0"><%= @farm.category %></p>
-  <p class="mb-0"><%= @farm.email %></p>
-  <p class="mb-0"><%= @farm.tel %></p>
-  <p><%= @farm.content %></p>
-</div>
-<div class='d-flex align-items-center'>
-  <i class="fas fa-map-marker-alt"></i>
-  <h1 class='ml-2 mb-0'><%= @farm.address %></h1>
+<div >
+  <p class="first-name mb-0"> <%= @farm.user.first_name %> - Producteur de <%= @farm.tag_list %> <%= image_tag "Picto/#{@farm.tag_list}.png", id:"picto-list" %></p>
+  <p class="address mb-0"><strong><%= @farm.address %></strong></p>
+  <p class="content-description mb-0"><%= @farm.content %></p>
 </div>
 <div class="product-description mt-3">
   <% @farm.products.each do |product| %>
-  <div class='product-images'>
-    <%= image_tag "Photo-fond-blanc/Poires/poire_Packham.jpeg" %>
-  </div>
-  <p><%= product.name %></p>
-  <p><%= product.price %></p>
-  <p><%= product.units %></p>
+    <%= link_to farm_product_path(product) do %>
+      <div class='product-images'>
+        <%= image_tag product.photo %>
+      </div>
+      <p><%= product.name %></p>
+      <p><%= product.price %> / <%= product.units %></p>
+      <p> <%= product.content %></p>
+    <% end %>
   <% end %>
 </div>

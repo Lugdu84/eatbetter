@@ -19,10 +19,28 @@ User.destroy_all
 puts 'Create users...'
 cities = %w[marseille, aubagne cassis lascours allauch napollon auriol peypin ceyreste cadolive]
 categories = %w[fruits fleurs fromage viandes poissons légumes]
-products = %w[tomate oignon courgette ail échalotte pomme carotte poire clémentine orange]
+products = ['poires williams', 'poires packham', 'poires conférence', 'poires passe-crassane',
+            'pommes braeburn', 'pommes granny', 'pommes golden', 'pommes jonagold', 'pommes reinettes',
+            'pommes fujis']
+contentProducts = ["La poire Williams est une variété ancienne encore très cultivée aujourd'hui puisqu'elle est
+                    la poire la plus cultivée dans le monde. C'est un fruit d'été, originaire du
+                    Royaume Uni, facile de culture. On l'aime pour sa chair juteuse et
+                    très parfumée qui s'apprécie crue mais aussi cuite dans de nombreuses recettes sucrées ou salées.",
+                   "Elle se conserve quelques jours à température ambiante.
+                    Pour une conservation plus longue, n’hésitez pas à la placer au réfrigérateur.
+                    Elle est saura vous régaler aussi bien crue que cuite. N’hésitez pas à la déguster pochée au vin !",
+                   "Elle se nomme poire Conférence, mais une seule voix se fait entendre. Car tous, cultivateurs
+                    comme consommateurs, l'aiment. Baptisée ainsi en 1895,
+                    la poire Conférence remporte le premier prix de la conférence internationale de la poire à Londres.
+                     Dès lors elle devient incontournable, surtout en France où elle est cultivée essentiellement dans le nord
+                    et dans les Alpes. Concernant la saison de la poire Conférence, il faut attendre l’automne pour la récolter.
+                    Autre avantage de cette variété centenaire : sa longue durée de conservation.
+                    Zoom sur la success story de la poire Conférence."
+                    ]
+prices = [0.99, 1.29, 1.19, 1.79, 0.99, 1.49, 1.09, 1.79, 0.99, 1.09]
 users = []
 farms = []
-users_for_rating = []
+
 10.times do |i|
   user = User.create!(
     first_name: Faker::Name::first_name,
@@ -47,25 +65,28 @@ puts "Creating farms..."
     #category: categories.sample,
     tel: Faker::PhoneNumber.cell_phone,
     email: Faker::Internet.email,
-    content: Faker::Lorem::paragraph,
+    #content: Faker::Lorem::paragraph,
     name: Faker::Ancient.hero,
     photo1: "Producteurs/#{i + 1}/1.jpg",
     photo2: "Producteurs/#{i + 1}/2.jpg",
     photo3: "Producteurs/#{i + 1}/3.jpg",
     photo_owner: "Producteurs/#{i + 1}/0#{i + 1}.png"
   )
-  farm.tag_list.add(categories.sample, parse: true)
+  farm.tag_list.add('fruits', parse: true)
   farm.save
   farms << farm
   puts "farm #{i + 1} create"
   puts "Creating products for farm #{farm.name}"
   10.times do |i|
-       Product.create!(
-         price: 1,
+    product = Product.create!(
+         price: prices[i],
          name: products[i],
          units: 'kg',
-         farm: farm
+         farm: farm,
+         content: contentProducts.sample
        )
+    product.photo = "Fruits/#{product.name}.jpg"
+    product.save
   end
 end
 puts "create farms OK"
@@ -84,7 +105,7 @@ puts "create farms OK"
 
   puts "Create #{i + 1} user... for rating"
   review = Review.create!(
-    rating: rand(1..5),
+    rating: rand(3..5),
     content: Faker::Lorem::paragraph,
     user: user,
     farm: farms.sample
