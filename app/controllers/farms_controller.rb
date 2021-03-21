@@ -11,7 +11,7 @@ class FarmsController < ApplicationController
       coords = Geocoder.coordinates('Lyon')
       @farms = Farm.near('Lyon', 100)
     end
-    @address = params[:query]
+    @querys = params[:query]
 
     @markers = {
       type: 'FeatureCollection',

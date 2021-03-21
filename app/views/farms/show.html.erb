@@ -1,30 +1,32 @@
-<div class="farm-images">
-  <%= image_tag @farm.photo1 %>
-  <%= image_tag @farm.photo_owner, class: "farm-user avatar-bordered" %>
-</div>
-<div class="farm-rating d-flex justify-content-center">
-  (<%= @reviews.count %>)
-  <% @rating.times do %>
-  <i class="fas fa-star colored mt-1"></i>
-  <% end %>
-  <% (5 - @rating).times do %>
-  <i class="fas fa-star mt-1"></i>
-  <% end %>
-</div>
-<div >
-  <p class="first-name mb-0"> <%= @farm.user.first_name %> - Producteur de <%= @farm.tag_list %> <%= image_tag "Picto/#{@farm.tag_list}.png", id:"picto-list" %></p>
-  <p class="address mb-0"><strong><%= @farm.address %></strong></p>
-  <p class="content-description mb-0"><%= @farm.content %></p>
-</div>
-<div class="product-description mt-3">
-  <% @farm.products.each do |product| %>
-    <%= link_to farm_product_path(product) do %>
-      <div class='product-images'>
-        <%= image_tag product.photo %>
-      </div>
-      <p><%= product.name %></p>
-      <p><%= product.price %> / <%= product.units %></p>
-      <p> <%= product.content %></p>
+<div class="container">
+  <div class="farm-images">
+    <%= image_tag @farm.photo1 %>
+    <%= image_tag @farm.photo_owner, class: "farm-user avatar-bordered" %>
+  </div>
+  <div class="farm-rating d-flex justify-content-center">
+    (<%= @reviews.count %>)
+    <% @rating.times do %>
+      <i class="fas fa-star colored mt-1"></i>
     <% end %>
-  <% end %>
+    <% (5 - @rating).times do %>
+      <i class="fas fa-star mt-1"></i>
+    <% end %>
+  </div>
+  <div >
+    <p class="first-name mb-0"> <%= @farm.user.first_name %> - Producteur de <%= @farm.tag_list %> <%= image_tag "Picto/#{@farm.tag_list}.png", id:"picto-list" %></p>
+    <p class="address mb-0"><strong><%= @farm.address %></strong></p>
+    <p class="content-description mb-0"><%= @farm.content %></p>
+  </div>
+  <div class="product-description mt-3">
+    <% @farm.products.each do |product| %>
+      <%= link_to farm_product_path(product) do %>
+        <div class='product-images'>
+          <%= image_tag product.photo %>
+        </div>
+        <p><%= product.name %></p>
+        <p><%= product.price %> / <%= product.units %></p>
+        <p> <%= product.content %></p>
+      <% end %>
+    <% end %>
+  </div>
 </div>
