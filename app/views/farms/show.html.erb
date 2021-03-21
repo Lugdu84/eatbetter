@@ -16,6 +16,11 @@
     <p class="first-name mb-0"> <%= @farm.user.first_name %> - Producteur de <%= @farm.tag_list %> <%= image_tag "Picto/#{@farm.tag_list}.png", id:"picto-list" %></p>
     <p class="address mb-0"><strong><%= @farm.address %></strong></p>
     <p class="content-description mb-0"><%= @farm.content %></p>
+    <% @farm.adresses.each do |adress| %>
+      <p> <%= adress.name %></p>
+      <p> <%= adress.day %></p>
+      <p> <%=adress.start %> - <%= adress.end %></p>
+   <% end %>
   </div>
   <div class="product-description mt-3">
     <% @farm.products.each do |product| %>

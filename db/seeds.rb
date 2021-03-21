@@ -11,6 +11,10 @@ puts "Destroy all reviews..."
 Review.destroy_all
 puts "Destroy all products..."
 Product.destroy_all
+puts "Destroy all Openings times..."
+OpeningTime.destroy_all
+puts 'Destroy all address...'
+Adress.destroy_all
 puts "Destroy all farms..."
 Farm.destroy_all
 puts "Destroy all users..."
@@ -22,6 +26,8 @@ first_names =%w[Roger Norbert Xavier Aurélie Pierre Laurent Richard Emmanuelle 
 last_names = %w[Teradon Cotillon Lafoix Dilors Cohors Teliesse Vuque Yelle Sellier Martin]
 farms = []
 users = []
+addressFarm = []
+days = %w[lundi jeudi dimanche]
 
 10.times do |i|
   user = User.create!(
@@ -55,6 +61,29 @@ puts "Creating farms..."
   )
   farm.tag_list.add('fruits', parse: true)
   farm.save
+  3.times do |i|
+    city = cities.sample
+    address = Adress.create!(
+      name: "marché de #{city}",
+      adress: city,
+      farm: farm,
+      day: days[i],
+      start: '8 heures',
+      end: '12 heures'
+    )
+    addressFarm << address
+  end
+=begin
+  3.times do |i|
+    opening = OpeningTime.create!(
+      start: '8 heures',
+      end: '12 heures',
+      day: days.sample,
+      adress: addressFarm[i]
+    )
+  end
+=end
+
   farms << farm
   puts "farm #{i + 1} create"
   puts "Creating products for farm #{farm.name}"
