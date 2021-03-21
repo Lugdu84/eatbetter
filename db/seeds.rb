@@ -78,7 +78,7 @@ puts "Creating farms..."
     opening = OpeningTime.create!(
       start: '8 heures',
       end: '12 heures',
-      day: days.sample,
+      day: days[i],
       adress: addressFarm[i]
     )
   end
