@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_192859) do
+ActiveRecord::Schema.define(version: 2021_03_21_195906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,17 @@ ActiveRecord::Schema.define(version: 2021_03_21_192859) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["farm_id"], name: "index_favorites_on_farm_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "opening_times", force: :cascade do |t|
+    t.string "start"
+    t.string "end"
+    t.string "day"
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "adresses_id", null: false
+    t.index ["adresses_id"], name: "index_opening_times_on_adresses_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -147,6 +158,7 @@ ActiveRecord::Schema.define(version: 2021_03_21_192859) do
   add_foreign_key "farms", "users"
   add_foreign_key "favorites", "farms"
   add_foreign_key "favorites", "users"
+  add_foreign_key "opening_times", "adresses", column: "adresses_id"
   add_foreign_key "products", "farms"
   add_foreign_key "reviews", "farms"
   add_foreign_key "reviews", "users"

@@ -1,0 +1,2 @@
+class OpeningTime < ApplicationRecord
+end
