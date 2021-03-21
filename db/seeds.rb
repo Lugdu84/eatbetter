@@ -18,18 +18,20 @@ User.destroy_all
 
 puts 'Create users...'
 cities = %w[marseille, aubagne cassis lascours allauch napollon auriol peypin ceyreste cadolive]
-users = []
+first_names =%w[Roger Norbert Xavier Aurélie Pierre Laurent Richard Emmanuelle Loïc Louis]
+last_names = %w[Teradon Cotillon Lafoix Dilors Cohors Teliesse Vuque Yelle Sellier Martin]
 farms = []
+users = []
 
 10.times do |i|
   user = User.create!(
-    first_name: Faker::Name::first_name,
-    last_name: Faker::Name::last_name,
-    email: Faker::Internet::email,
+    first_name: first_names[i],
+    last_name: last_names[i],
+    email: "#{first_names[i]}.#{last_names[i]}@gmail.com",
     address: cities[i],
     password: 'azerty'
   )
-  puts "Create #{i + 1} user..."
+  puts "Create #{i + 1} user #{first_names[i]}..."
   users << user
 end
 puts "#{users.count} users as been creating..."
@@ -42,11 +44,10 @@ puts "Creating farms..."
   farm = Farm.create!(
     user: users[i],
     address: cities[i],
-    #category: categories.sample,
-    tel: Faker::PhoneNumber.cell_phone,
-    email: Faker::Internet.email,
+    tel: '06-43-76-36-78',
+    email: "#{first_names[i]}.#{last_names[i]}@gmail.com",
     #content: Faker::Lorem::paragraph,
-    name: Faker::Ancient.hero,
+    name: last_names[i],
     photo1: "Producteurs/#{i + 1}/1.jpg",
     photo2: "Producteurs/#{i + 1}/2.jpg",
     photo3: "Producteurs/#{i + 1}/3.jpg",
@@ -140,7 +141,7 @@ puts "Creating farms..."
   product7.photo = "Fruits/#{product7.name}.jpg"
   product7.save
   product8 = Product.create!(
-    price: 0.99,
+    price: 1.29,
     name: 'pommes jonagold',
     units: 'kg',
     farm: farm,
@@ -152,7 +153,7 @@ puts "Creating farms..."
   product8.photo = "Fruits/#{product8.name}.jpg"
   product8.save
   product9 = Product.create!(
-    price: 0.99,
+    price: 1.19,
     name: 'pommes reinettes',
     units: 'kg',
     farm: farm,
@@ -163,7 +164,7 @@ puts "Creating farms..."
   product9.photo = "Fruits/#{product9.name}.jpg"
   product9.save
   product10 = Product.create!(
-    price: 0.99,
+    price: 1.29,
     name: 'pommes fujis',
     units: 'kg',
     farm: farm,
