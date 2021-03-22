@@ -18,6 +18,11 @@
     <p class="content-description mb-0"><%= @farm.content %></p>
     <% @farm.markets.each do |market| %>
       <p> <%= market.name %></p>
+      <% market.openings.each do |opening|%>
+        <p>Horaires : </p>
+        <%= opening.day %>
+        <p><%= opening.start %> - <%= opening.end %></p>
+      <% end%>
    <% end %>
   </div>
   <div class="product-description mt-3">
