@@ -5,6 +5,7 @@ class Farm < ApplicationRecord
   belongs_to :user
   has_many :products
   has_many :reviews
+  has_many :markets
   has_many_attached :photos
 
   acts_as_taggable_on :tags, :type_farm

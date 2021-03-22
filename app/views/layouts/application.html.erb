@@ -14,9 +14,7 @@
   <body>
     <% if @navbar %>
       <%= render 'shared/navbar'%>
-      <div class='container' >
         <%= yield %>
-      </div>
     <% else %>
       <%= yield %>
     <% end %>

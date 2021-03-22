@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_19_183514) do
+ActiveRecord::Schema.define(version: 2021_03_22_065614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,27 @@ ActiveRecord::Schema.define(version: 2021_03_19_183514) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["farm_id"], name: "index_favorites_on_farm_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "markets", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.float "longitude"
+    t.float "latitude"
+    t.bigint "farm_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["farm_id"], name: "index_markets_on_farm_id"
+  end
+
+  create_table "openings", force: :cascade do |t|
+    t.string "day"
+    t.string "start"
+    t.string "end"
+    t.bigint "market_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["market_id"], name: "index_openings_on_market_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -135,6 +156,8 @@ ActiveRecord::Schema.define(version: 2021_03_19_183514) do
   add_foreign_key "farms", "users"
   add_foreign_key "favorites", "farms"
   add_foreign_key "favorites", "users"
+  add_foreign_key "markets", "farms"
+  add_foreign_key "openings", "markets"
   add_foreign_key "products", "farms"
   add_foreign_key "reviews", "farms"
   add_foreign_key "reviews", "users"

@@ -11,7 +11,7 @@ class FarmsController < ApplicationController
       coords = Geocoder.coordinates('Lyon')
       @farms = Farm.near('Lyon', 100)
     end
-    @address = params[:query]
+    @querys = params[:query]
 
     @markers = {
       type: 'FeatureCollection',
@@ -57,6 +57,7 @@ class FarmsController < ApplicationController
     @farm = Farm.find(params[:id])
     @reviews = Review.select { |m| m.farm == @farm }
     @rating = Review.where(farm: @farm).average(:rating).to_i
+
   end
 
 
