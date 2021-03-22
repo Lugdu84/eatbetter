@@ -14,7 +14,7 @@
           <li class="nav-item">
             <%= link_to "", new_user_session_path, class: "far fa-user-circle profil-color-off" %>
           </li>
-        <% end %>
-        <i class="fas fa-shopping-basket profil-color-off ml-2"></i>
+  <% end %>
+    <%= link_to "",  order_path(current_user) , class:"fas fa-shopping-basket profil-color-off ml-2"  %>
 </div>
 </div>

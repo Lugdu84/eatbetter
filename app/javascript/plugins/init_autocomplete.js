@@ -4,8 +4,8 @@ const initAutocomplete = () => {
     const addressInput = document.getElementById('query');
     if (addressInput) {
         places({ container: addressInput });
+        addressInput.value = "";
     };
-    document.getElementById('query').value = ""
 
     /*const placesAutoComplete = places({
         container: addressInput,
