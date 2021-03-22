@@ -9,3 +9,8 @@
 .product-images > img {
   max-width: 100%;
 }
+
+.listOpenings {
+  display: flex;
+  flex-direction: column;
+}
