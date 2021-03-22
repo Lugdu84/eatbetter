@@ -30,7 +30,7 @@ import "bootstrap";
 import {initMapbox} from "../plugins/init_mapbox";
 import {initAutocomplete} from "../plugins/init_autocomplete";
 import {initCart} from "../components/cart.js"
-import {favoriteJS} from "../favorites/destroy"
+import {favoriteJS} from "../../views/favorites/destroy.js.erb"
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -39,5 +39,5 @@ document.addEventListener('turbolinks:load', () => {
 
   initMapbox();
   initAutocomplete();
-  favoristeJS();
+  favoriteJS();
 });
