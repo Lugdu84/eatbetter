@@ -9,6 +9,7 @@
   <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "", destroy_user_session_path, :method => :delete, class: "fas fa-user-circle profil-color-on" %>
+            <%= link_to "F",  favorites_path , class:"profil-color-off ml-2"  %>
           </li>
         <% else %>
           <li class="nav-item">
@@ -16,5 +17,6 @@
           </li>
   <% end %>
     <%= link_to "",  order_path(current_user) , class:"fas fa-shopping-basket profil-color-off ml-2"  %>
+
 </div>
 </div>
