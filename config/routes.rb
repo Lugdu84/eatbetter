@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     resources :products, only: [:show]
   end
   get 'listFarms', to: 'farms#listFarms'
-  get 'myfavorites', to: 'favorites#myfavorites'
+  resources :favorites, only: [:index, :create, :destroy]
 end

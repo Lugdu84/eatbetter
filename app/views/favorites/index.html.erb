@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Mes Producteurs</h1>
+  <!-- remote true sur le bouton ( i) simple form for (input caché valeur avec ID de la ferme) ou ii) link_to PUIS ajouter JS pour éviter de rechager la page tout en ayant le coeur rouge ) -->
+  <!-- + dans la show de la ferme ajouter if favoris rouge et sinon laisser le coeur gris donc impact la methode farms et front des show de farms  -->
+  <% @favorites.each do |favorite| %>
+    <div id="<%= favorite.id %>">
+      <%= render 'farms/farm_card', farm: favorite.farm %>
+      <%= link_to favorite_path(favorite.id), remote: true, method: :delete  do %>
+        <i class="far fa-times-circle"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
