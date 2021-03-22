@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :products, only: [:show]
   end
   get 'listFarms', to: 'farms#listFarms'
+  get 'myfavorites', to: 'favorites#myfavorites'
 end
