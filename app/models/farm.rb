@@ -7,6 +7,7 @@ class Farm < ApplicationRecord
   has_many :reviews
   has_many :markets
   has_many_attached :photos
+  has_many :favorites
 
   acts_as_taggable_on :tags, :type_farm
 

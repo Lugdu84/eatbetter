@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :farms
   has_many :reviews
   has_many :orders
+  has_many :favorites
 
   def coordinates
     [longitude, latitude]

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
   resources :orders, only: [:show, :index]
   get 'listFarms', to: 'farms#listFarms'
+  resources :favorites, only: [:index, :create, :destroy]
 end
