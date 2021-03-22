@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_134158) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.boolean "validate"
+    t.boolean "approved"
     t.datetime "date"
     t.float "amount"
     t.bigint "user_id", null: false
