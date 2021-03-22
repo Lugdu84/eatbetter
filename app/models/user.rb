@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :farms
   has_many :reviews
+  has_many :favorites
 
   def coordinates
     [longitude, latitude]

@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+puts "Destroy all favorites..."
+Favorite.destroy_all
 puts "Destroy all reviews..."
 Review.destroy_all
 puts "Destroy all products..."
@@ -203,8 +205,6 @@ puts "Creating farms..."
 end
 puts "create farms OK"
 
-
-
 50.times do |i|
   user = User.create!(
     first_name: Faker::Name::first_name,
@@ -225,7 +225,15 @@ puts "create farms OK"
   puts " #{i + 1 } -#{user.first_name}, rating for : #{review.farm.name}, with #{review.rating}"
 end
 
-
-
-
+puts "Create favorite farms"
+  favorite1 = Favorite.create!(
+    user: User.last,
+    farm: Farm.first
+    )
+    puts "create favorites between #{Farm.first.name} and #{User.last.first_name}"
+  favorite2 = Favorite.create!(
+    user: User.last,
+    farm: Farm.last
+    )
+    puts "create favorites between #{Farm.last.name} and #{User.last.first_name}"
 puts "End of seeds..."
