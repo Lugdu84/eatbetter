@@ -12,9 +12,9 @@ Review.destroy_all
 puts "Destroy all products..."
 Product.destroy_all
 puts "Destroy all Openings times..."
-OpeningTime.destroy_all
+Opening.destroy_all
 puts 'Destroy all address...'
-Adress.destroy_all
+Market.destroy_all
 puts "Destroy all farms..."
 Farm.destroy_all
 puts "Destroy all users..."
@@ -52,7 +52,7 @@ puts "Creating farms..."
     address: cities[i],
     tel: '06-43-76-36-78',
     email: "#{first_names[i]}.#{last_names[i]}@gmail.com",
-    #content: Faker::Lorem::paragraph,
+    content: "je m'appelle #{first_names[i]} et je cultive des pommes et des poires, avec amour",
     name: last_names[i],
     photo1: "Producteurs/#{i + 1}/1.jpg",
     photo2: "Producteurs/#{i + 1}/2.jpg",
@@ -63,26 +63,21 @@ puts "Creating farms..."
   farm.save
   3.times do |i|
     city = cities.sample
-    address = Adress.create!(
+    address = Market.create!(
       name: "marché de #{city}",
-      adress: city,
+      address: city,
       farm: farm,
-      day: days[i],
-      start: '8 heures',
-      end: '12 heures'
     )
     addressFarm << address
   end
-=begin
   3.times do |i|
-    opening = OpeningTime.create!(
+    opening = Opening.create!(
       start: '8 heures',
       end: '12 heures',
       day: days[i],
-      adress: addressFarm[i]
+      market: addressFarm[i]
     )
   end
-=end
 
   farms << farm
   puts "farm #{i + 1} create"

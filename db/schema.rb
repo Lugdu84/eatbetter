@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_065324) do
+ActiveRecord::Schema.define(version: 2021_03_22_065614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,16 @@ ActiveRecord::Schema.define(version: 2021_03_22_065324) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["farm_id"], name: "index_markets_on_farm_id"
+  end
+
+  create_table "openings", force: :cascade do |t|
+    t.string "day"
+    t.string "start"
+    t.string "end"
+    t.bigint "market_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["market_id"], name: "index_openings_on_market_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -147,6 +157,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_065324) do
   add_foreign_key "favorites", "farms"
   add_foreign_key "favorites", "users"
   add_foreign_key "markets", "farms"
+  add_foreign_key "openings", "markets"
   add_foreign_key "products", "farms"
   add_foreign_key "reviews", "farms"
   add_foreign_key "reviews", "users"
