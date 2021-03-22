@@ -61,7 +61,7 @@ puts "Creating farms..."
   )
   farm.tag_list.add('fruits', parse: true)
   farm.save
-  3.times do |i|
+  3.times do |j|
     city = cities.sample
     address = Market.create!(
       name: "marché de #{city}",
@@ -70,12 +70,12 @@ puts "Creating farms..."
     )
     addressFarm << address
   end
-  3.times do |i|
+  3.times do |index|
     opening = Opening.create!(
       start: '8 heures',
       end: '12 heures',
       day: days[i],
-      market: addressFarm[i]
+      market: addressFarm[index]
     )
   end
 
