@@ -1,6 +1,19 @@
 <div class="container">
   <div class="farm-images">
-    <%= image_tag @farm.photo1 %>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
+      <div class="carousel-inner product-images">
+        <div class="carousel-item active">
+          <%= image_tag @farm.photo1, class:"d-block w-100" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag @farm.photo2, class:"d-block w-100" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag @farm.photo3, class:"d-block w-100" %>
+        </div>
+      </div>
+    </div>
+    <%#= image_tag @farm.photo1 %>
     <%= image_tag @farm.photo_owner, class: "farm-user avatar-bordered" %>
   </div>
   <div class="farm-rating d-flex justify-content-center">
@@ -16,24 +29,35 @@
     <p class="first-name mb-0"> <%= @farm.user.first_name %> - Producteur de <%= @farm.tag_list %> <%= image_tag "Picto/#{@farm.tag_list}.png", id:"picto-list" %></p>
     <p class="address mb-0"><strong><%= @farm.address %></strong></p>
     <p class="content-description mb-0"><%= @farm.content %></p>
-    <% @farm.markets.each do |market| %>
-      <p> <%= market.name %></p>
-      <% market.openings.each do |opening|%>
-        <p>Horaires : </p>
-        <%= opening.day %>
-        <p><%= opening.start %> - <%= opening.end %></p>
-      <% end%>
-   <% end %>
+
+    <div class="listOpenings farm-images p-1 mt-3">
+      <p class="text-center first-name "> Mes points de ventes :</p>
+      <% @farm.markets.each do |market| %>
+        <a class="" data-toggle="collapse" href="#market-<%= market.id %>"
+           role="button" aria-expanded="false" aria-controls="market-<%= market.id %>">
+          <p class="text-center"> <%= market.name %></p>
+        </a>
+        <div class="collapse" id="market-<%= market.id %>">
+          <div class="card card-body content-description text-center">
+            <% market.openings.each do |opening|%>
+              <p><%= opening.day %> : <%= opening.start %> - <%= opening.end %></p>
+            <% end%>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div class="product-description mt-3">
-    <% @farm.products.each do |product| %>
+    <% @products.each do |product| %>
       <%= link_to farm_product_path(product) do %>
-        <div class='product-images'>
-          <%= image_tag product.photo %>
+        <div class="farm-images p-3 mb-3">
+          <div class='product-images'>
+            <%= image_tag product.photo %>
+          </div>
+          <h4><%= product.name %></h4>
+          <p> <%= product.content %></p>
+          <h6><%= product.price %> / <%= product.units %></h6>
         </div>
-        <p><%= product.name %></p>
-        <p><%= product.price %> / <%= product.units %></p>
-        <p> <%= product.content %></p>
       <% end %>
     <% end %>
   </div>
