@@ -99,9 +99,9 @@ ActiveRecord::Schema.define(version: 2021_03_22_134158) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.boolean "approved"
+    t.boolean "approved", default: false
     t.datetime "date"
-    t.float "amount"
+    t.float "amount", default: 0.0
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
