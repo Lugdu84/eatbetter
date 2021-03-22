@@ -1,6 +1,9 @@
 const favoriteJS = () => {
-favorite = document.getElementById("favorite-id<%= favorite.id %>");
+const favorite = document.getElementById("favorite-id<%= favorite.id %>");
 // cache le favoris détruit
-favorite.classList.add('hidden');
+if (favorite) {
+    favorite.classList.add('hidden');
+}
+
 }
 export { favoriteJS };
