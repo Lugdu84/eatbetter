@@ -2,7 +2,7 @@
   <div class="content pr-3 pl-3">
     <div class="product-">
       <div class = "product-images-list" >
-        <%= image_tag "#{@product.photo}" %>
+        <%= image_tag @product.photo %>
       </div>
       <div class="product-description-list">
         <h2 class="h2-center"><%= @product.name %></h2>
@@ -21,15 +21,19 @@
                 </button>
             </div>
         </div>
-
-          <p class="price mt-2 "> <%= @product.price %> € / le <%= @product.units %> - Total: <%= @product.price %> € * </p>
-          <%= form_with url:"#" do %>
-           <input hidden type="number" id="myNumber" class="form-control input-number" value="1" />
-           <input type="submit" class="btn btn-info" value="Ajouter au panier" />
+          <p class="price"> <%= @product.price %> € / le <%= @product.units %> </p>
+          <p class="total", id="total-item"> Total : <%= @product.price %> € </p>
+          <%= @order_item.product %>
+          <% @order_item.market = @product.farm.markets.first %>
+          <%= form_for @order_item do |f| %>
+            <%= f.hidden_field :product_id, value: @product.id %>
+            <%= f.hidden_field :market_id, value: @order_item.market.id %>
+            <%= f.hidden_field :order_id, value: @order_item.order.id %>
+            <%= f.hidden_field :quantity, value: 1, class:"form-control input-number", id:"myNumber" %>
+            <%= f.submit 'Ajouter au panier', class:' btn btn-primary' %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-

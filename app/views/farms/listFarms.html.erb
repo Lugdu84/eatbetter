@@ -5,9 +5,20 @@
       <% @farms.each_with_index do |farm, i|%>
         <%= link_to farm_path(farm), class:'' do %>
           <div class="farm-images-list" id="<%= farm.id %>">
-            <%= image_tag farm.photo1 %>
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
+              <div class="carousel-inner product-images">
+                <div class="carousel-item active">
+                  <%= image_tag farm.photo1, class:"d-block w-100" %>
+                </div>
+                <div class="carousel-item">
+                  <%= image_tag farm.photo2, class:"d-block w-100" %>
+                </div>
+                <div class="carousel-item">
+                  <%= image_tag farm.photo3, class:"d-block w-100" %>
+                </div>
+              </div>
+            </div>
             <%= image_tag farm.photo_owner, class: "farm-user-list avatar-bordered" %>
-
             <div class="farm-description-list">
               <div class="farm-rating d-flex justify-content-center">
                 (<%= @reviews[i].count %>)
