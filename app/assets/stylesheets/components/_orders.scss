@@ -3,8 +3,30 @@
   flex-direction: column;
 }
 
-.item-order-img {
-  width: 100px;
-  height: 100px;
+.card-item-order {
+  width: 90vw;
+  height: 160px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 10px 10px;
+  position: relative;
+}
+
+.card-item-order-img {
+  height: 120px;
+  width: 120px;
   object-fit: cover;
+}
+
+.item-delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #B00100;
+}
+
+.item-order-info {
+  padding: 10px;
 }

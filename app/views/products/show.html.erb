@@ -23,20 +23,20 @@
         </div>
 
           <p class="price"> <%= @product.price %> € / le <%= @product.units %> </p>
-          <p class="total"> Total: <%= @product.price %> € * </p>
+          <p class="total"> Total : <%= @product.price %> € * </p>
           <br>
           <%= @order_item.product %>
-          <% @order_item.product = @product %>
-          <% @order_item.market = Market.last %>
+
+          <% @order_item.market = Market.first %>
           <% @order_item.quantity = 3 %>
-          <%= form_for @order_item do |f|%>
-            <input hidden type="number" id="myNumber" class="form-control input-number" value="1" />
-            <%= f.submit 'Ajoutez au panier', class:' btn btn-primary' %>
+
+          <%= form_for @order_item do |f| %>
+            <%= f.hidden_field :product_id, value: @product.id %>
+            <%= f.hidden_field :market_id, value: @order_item.market.id %>
+            <%= f.hidden_field :order_id, value: @order_item.order.id %>
+            <%= f.hidden_field :quantity, value: 1, class:"form-control input-number", id:"myNumber" %>
+            <%= f.submit 'Ajouter au panier', class:' btn btn-primary' %>
           <% end %>
-
-          <!-- <input hidden type="number" id="myNumber" class="form-control input-number" value="1" />
-           <input type="submit" class="btn btn-info" value="Ajouter au panier" />-->
-
         </div>
       </div>
     </div>

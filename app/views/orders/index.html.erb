@@ -1,14 +1,16 @@
-<div class="container">
-  <h3>Mon panier</h3>
-  <div class="list-items-orders">
-    <% @order_items.each do |order| %>
-      <div class="item-order">
-        <div class = "item-order-img" >
-          <%= image_tag order.product.photo %>
+<h3 class="text-center">Mon panier</h3>
+<div class="list-item-order">
+  <% @order_items.each_with_index do |order_item, i|%>
+    <div class="card-item-order">
+        <%= image_tag order_item.product.photo, class: "card-item-order-img" %>
+        <div class="item-order-info">
+          <h2> <%=order_item.product.name %></h2>
+          <h6> Quantité : <%= order_item.quantity %>  <%= order_item.product.units %></h6>
+          <h6> Prix unitaire : <%= order_item.product.price %> € / kg</h6>
+          <h6> Prix toal : <%= order_item.quantity * order_item.product.price %> €</h6>
+          <h6> <%= order_item.market.name %></h6>
         </div>
-        <%= order.product.name %> <%= order.quantity %> <%= order.market.name %>
-      </div>
-    <% end %>
-  </div>
+      <%= link_to '', order_item_path(order_item), method: :delete, class: 'item-delete fas fa-trash' %>
+    </div>
+  <% end %>
 </div>
-<%= render'shared/footer' %>
