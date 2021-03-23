@@ -39,5 +39,5 @@ document.addEventListener('turbolinks:load', () => {
 
   initMapbox();
   initAutocomplete();
-  favoriteJS();
+  //favoriteJS();
 });
