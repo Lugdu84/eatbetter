@@ -1,1 +1,14 @@
-<%= current_user.first_name %>
+<div class="container">
+  <h3>Mon panier</h3>
+  <div class="list-items-orders">
+    <% @order_items.each do |order| %>
+      <div class="item-order">
+        <div class = "item-order-img" >
+          <%= image_tag order.product.photo %>
+        </div>
+        <%= order.product.name %> <%= order.quantity %> <%= order.market.name %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render'shared/footer' %>

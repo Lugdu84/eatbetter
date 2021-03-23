@@ -1,0 +1,10 @@
+.list-items-orders {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-order-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
