@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :farms, only: [:index, :show ] do
     resources :products, only: [:show]
   end
-  resources :orders, only: [:index, :new, :create]
+  resources :orders, only: [:index]
+  resources :order_items, only: [:new, :create, :update, :destroy, :edit, :index]
   get 'listFarms', to: 'farms#listFarms'
   resources :favorites, only: [:index, :create, :destroy]
 end

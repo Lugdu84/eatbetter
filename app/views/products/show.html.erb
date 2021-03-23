@@ -14,7 +14,7 @@
                   <span class="glyphicon glyphicon-minus"><%= image_tag "Picto_component/picto_moins.png" %></span>
                 </button>
             </div>
-            <p id="display-quantity">1</p><p class="units" id="unit"> <%= @product.units %> </p>
+            <p id="display-quantity">1 </p><p class="units" id="unit"> <%= @product.units %> </p>
             <div class="input-group-btn">
                 <button id="up" class="btn btn-default">
                   <span class="glyphicon glyphicon-plus"><%= image_tag "Picto_component/picto_plus.png" %></span>
@@ -25,10 +25,18 @@
           <p class="price"> <%= @product.price %> € / le <%= @product.units %> </p>
           <p class="total"> Total: <%= @product.price %> € * </p>
           <br>
-          <%= form_with url:"#" do %>
-           <input hidden type="number" id="myNumber" class="form-control input-number" value="1" />
-           <input type="submit" class="btn btn-info" value="Ajouter au panier" />
+          <%= @order_item.product %>
+          <% @order_item.product = @product %>
+          <% @order_item.market = Market.last %>
+          <% @order_item.quantity = 3 %>
+          <%= form_for @order_item do |f|%>
+            <input hidden type="number" id="myNumber" class="form-control input-number" value="1" />
+            <%= f.submit 'Ajoutez au panier', class:' btn btn-primary' %>
           <% end %>
+
+          <!-- <input hidden type="number" id="myNumber" class="form-control input-number" value="1" />
+           <input type="submit" class="btn btn-info" value="Ajouter au panier" />-->
+
         </div>
       </div>
     </div>
