@@ -1,12 +1,27 @@
 <%= link_to farm_path(farm) do %>
-  <div class="farm-images-list" id="<%= farm.id %>">
-    <%= image_tag farm.photo1 %>
-    <%= image_tag farm.photo_owner, class: "farm-user-list avatar-bordered" %>
-    <div class="farm-description-list">
-      <p class="first-name mb-0"> <%= farm.user.first_name %> - Producteur de <%=farm.tag_list %> <%= image_tag "Picto/#{farm.tag_list}.png", id:"picto-list" %></p>
-      <p class="address mb-0"><strong><%= farm.address %></strong></p>
-      <p class="content-description mb-0"><%= farm.content %></p>
-    </div>
+<div class="farm-images-list" id="<%= farm.id %>">
+  <div class="favorite-farm">
+    <%= link_to favorite_path(favorite), remote: true, method: :delete  do %>
+    <i class="far fa-times-circle"></i>
+    <% end %>
   </div>
-<% end %>
+  <%= image_tag farm.photo1 %>
+  <%= image_tag farm.photo_owner, class: "farm-user-list avatar-bordered" %>
+  <div class="farm-description-list">
+    <div class="farm-rating d-flex justify-content-center">
+      <p>(<%= reviews.count %>)</p>
+      <% average_rating.times do %>
+      <i class="fas fa-star colored mt-1"></i>
+      <% end %>
+      <% (5 - average_rating).times do %>
+      <i class="fas fa-star mt-1"></i>
+      <% end %>
+    </div>
+    <p class="first-name mb-0"> <%= farm.user.first_name %> </p>
+    <p class="picto-list-tag mb-0">Producteur de <%=farm.tag_list %> <%= image_tag "Picto/#{farm.tag_list}.png", id:"picto-list" %></p>
+    <p class="address mb-0"><strong>À <%= farm.address %></strong></p>
+    <p class="content-description mb-0"><%= farm.content %></p>
+  </div>
 
+</div>
+<% end %>
