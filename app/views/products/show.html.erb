@@ -5,26 +5,24 @@
         <%= image_tag "#{@product.photo}" %>
       </div>
       <div class="product-description-list">
-        <h2><%= @product.name %></h2>
+        <h2 class="h2-center"><%= @product.name %></h2>
         <p class="content"> <%= @product.content %></p>
         <div class="p-u-products" id="product-cart">
           <div class="input-group">
-            <div class="input-group-btn">
+            <div class="input-group-btn mr-2">
                 <button id="down" class="btn btn-default">
                   <span class="glyphicon glyphicon-minus"><%= image_tag "Picto_component/picto_moins.png" %></span>
                 </button>
             </div>
-            <p id="display-quantity">1</p><p class="units" id="unit"> <%= @product.units %> </p>
+            <p id="display-quantity">1</p><p class="units ml-1" id="unit"> <%= @product.units %> </p>
             <div class="input-group-btn">
-                <button id="up" class="btn btn-default">
+                <button id="up" class="btn btn-default ml-2">
                   <span class="glyphicon glyphicon-plus"><%= image_tag "Picto_component/picto_plus.png" %></span>
                 </button>
             </div>
         </div>
 
-          <p class="price"> <%= @product.price %> € / le <%= @product.units %> </p>
-          <p class="total"> Total: <%= @product.price %> € * </p>
-          <br>
+          <p class="price mt-2 "> <%= @product.price %> € / le <%= @product.units %> - Total: <%= @product.price %> € * </p>
           <%= form_with url:"#" do %>
            <input hidden type="number" id="myNumber" class="form-control input-number" value="1" />
            <input type="submit" class="btn btn-info" value="Ajouter au panier" />
