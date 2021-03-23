@@ -6,8 +6,8 @@
   //background: white;
   //position: relative;
   border-radius: 20px;
-  margin-top: 20px;
-  margin-bottom:20px;
+  margin-top: 0px;
+  margin-bottom:0px;
 }
 .product-images-list > img:not(.product-user-list) {
   height: 100%;
@@ -18,8 +18,9 @@
 .product-description-list{
   color: #2C3A64;
   padding: 8px;
-  border: solid #82B378 1px;
-  border-radius: 0px 0px 20px 20px;
+  //border: solid #82B378 1px;
+  //border-radius: 0px 0px 20px 20px;
+  text-align:justify;
 }
 .card-trip h2 {
   font-size: 16px;
@@ -33,15 +34,7 @@
   top: 100px;
   width: 80px;
 }
-.first-name{
-  color: #2C3A64;
-  font-size: 17px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.units {
-  color: #2C3A64;
-}
+
 .price{
   color: #2C3A64;
   font-size: 16px;
@@ -61,7 +54,8 @@ border-radius: 0px 0px 20px 20px;
   color: #2C3A64;
 }
 
-h2 {
+.h2-center {
+  text-align: center;
   color: #2C3A64;
   font-size: 17px;
   font-weight: bold;
@@ -73,17 +67,19 @@ h2 {
   margin: 30px;
 }
 .input-group {
-  display: flex;
+  //display: flex;
   justify-content: center;
-  text-align: center;
+  //flex-grow: 4;
 }
 
 .btn-default {
-  background-color: #FFA412;
   text-align:center;
+  margin-top: -7px;
 }
 
 .btn-default img{
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
 }
+
+
