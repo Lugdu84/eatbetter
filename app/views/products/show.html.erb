@@ -2,7 +2,7 @@
   <div class="content pr-3 pl-3">
     <div class="product-">
       <div class = "product-images-list" >
-        <%= image_tag "#{@product.photo}" %>
+        <%= image_tag @product.photo %>
       </div>
       <div class="product-description-list">
         <h2><%= @product.name %></h2>
@@ -14,22 +14,17 @@
                   <span class="glyphicon glyphicon-minus"><%= image_tag "Picto_component/picto_moins.png" %></span>
                 </button>
             </div>
-            <p id="display-quantity">1 </p><p class="units" id="unit"> <%= @product.units %> </p>
+            <p id="display-quantity">1 </p><p class="units" id="unit">  <%= @product.units %> </p>
             <div class="input-group-btn">
                 <button id="up" class="btn btn-default">
                   <span class="glyphicon glyphicon-plus"><%= image_tag "Picto_component/picto_plus.png" %></span>
                 </button>
             </div>
         </div>
-
           <p class="price"> <%= @product.price %> € / le <%= @product.units %> </p>
-          <p class="total"> Total : <%= @product.price %> € * </p>
-          <br>
+          <p class="total", id="total-item"> Total : <%= @product.price %> € </p>
           <%= @order_item.product %>
-
-          <% @order_item.market = Market.first %>
-          <% @order_item.quantity = 3 %>
-
+          <% @order_item.market = @product.farm.markets.first %>
           <%= form_for @order_item do |f| %>
             <%= f.hidden_field :product_id, value: @product.id %>
             <%= f.hidden_field :market_id, value: @order_item.market.id %>

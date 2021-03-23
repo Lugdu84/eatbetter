@@ -14,6 +14,17 @@
   position: relative;
 }
 
+.card-total-order {
+  width: 90vw;
+  height: 40px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 10px 10px;
+  position: relative;
+}
+
 .card-item-order-img {
   height: 120px;
   width: 120px;
