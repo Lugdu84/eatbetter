@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+puts "Destroy Order and order_items"
 OrderItem.destroy_all
 Order.destroy_all
 puts "Destroy all favorites..."
@@ -219,8 +220,8 @@ puts "create farms OK"
 
   puts "Create #{i + 1} user... for rating"
   review = Review.create!(
-    rating: rand(3..5),
-    content: Faker::Lorem::paragraph,
+    rating: rand(4..5),
+    content: 'Super producteur !',
     user: user,
     farm: farms.sample
   )
@@ -238,4 +239,8 @@ puts "Create favorite farms"
     farm: Farm.last
     )
     puts "create favorites between #{Farm.last.name} and #{User.last.first_name}"
+puts "Create Order..."
+order = Order.create!(
+  user: User.last
+)
 puts "End of seeds..."

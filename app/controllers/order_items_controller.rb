@@ -1,6 +1,5 @@
 class OrderItemsController < ApplicationController
 
-
   def destroy
     @order_item = OrderItem.find(params[:id])
     @order_item.destroy
@@ -9,7 +8,8 @@ class OrderItemsController < ApplicationController
 
   def create
     @order_item = OrderItem.create!(order_items_params)
-    redirect_to orders_path
+    #redirect_to listFarms_path(query: 'Aubagne', fruits:'on')
+    redirect_to farm_path(@order_item.market.farm)
   end
 
   private
