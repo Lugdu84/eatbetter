@@ -7,12 +7,12 @@
   border-radius: 20px;
   margin-top: 20px;
   margin-bottom:20px;
+  overflow: hidden;
 }
 .farm-images-list > img:not(.farm-user-list) {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 20px 20px 0px 0px;
 }
 .farm-description-list{
   padding: 8px;
@@ -69,9 +69,11 @@ height: 35px;
   font-size: 16px;
 }
 .btn-primary{
-background-color: #FFA412;
+  color:#fff;
+background-color: #ED7D2B;
 border: 1px;
 border-radius: 10px 10px 0px 0px;
+font-family: $body-font;
 }
 .btn-primary:hover{
   color: #ED7D2B;
@@ -79,9 +81,23 @@ border-radius: 10px 10px 0px 0px;
   background-color: #fff;
   border-radius: 10px 10px 0px 0px;
 }
-
-.farm-images-list:hover{
-opacity: 70%;
-list-style-type: none;
+.btn-primary-2{
+color:#fff;
+background-color: #ED7D2B;
+border: 1px;
+border-radius: 10px 10px 0px 0px;
+font-family: $body-font;
+position: fixed;
+bottom: -0%;
+left: 50%;
+transform: translate(-50%,0%);
 }
+.btn-primary-2:hover{
+  color: #ED7D2B;
+  border: 1px solid #ED7D2B;
+  background-color: #fff;
+  border-radius: 10px 10px 0px 0px;
+}
+
+
 
