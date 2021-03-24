@@ -7,8 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-OrderItem.destroy_all
-Order.destroy_all
 puts "Destroy all favorites..."
 Favorite.destroy_all
 puts "Destroy all reviews..."
