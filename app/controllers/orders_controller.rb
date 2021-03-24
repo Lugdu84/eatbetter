@@ -9,5 +9,6 @@ class OrdersController < ApplicationController
     @order_items.each do |item|
       @sum += item.quantity * item.product.price
     end
+    @sum = @sum.round(2)
   end
 end
