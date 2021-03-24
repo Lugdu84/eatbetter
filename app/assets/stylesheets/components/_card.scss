@@ -2,13 +2,13 @@
   max-height: 150px;
   display: flex;
   overflow: scroll;
-  background-color: transparent;
+  //background-color: #FFA412;
 }
 .card-product {
   width: 90vw;
   height: 130px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  //box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   margin: 10px 10px;
@@ -45,7 +45,7 @@
 }
 
 .card-active {
-  border-top: 3px orange solid;
+  border-top: 3px #FFA412 solid;
 }
 
 .favorite-farm {

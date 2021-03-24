@@ -29,15 +29,14 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import {initMapbox} from "../plugins/init_mapbox";
 import {initAutocomplete} from "../plugins/init_autocomplete";
-import {initCart} from "../components/cart.js"
-import {favoriteJS} from "../../views/favorites/destroy.js.erb"
+import { initCart } from "../components/cart.js"
+//import {favoriteJS} from "../../views/favorites/destroy.js.erb"
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  initCart();
-
   initMapbox();
   initAutocomplete();
-  favoriteJS();
+  //favoriteJS();
+  initCart();
 });
