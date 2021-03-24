@@ -7,12 +7,12 @@
   border-radius: 20px;
   margin-top: 20px;
   margin-bottom:20px;
+  overflow: hidden;
 }
 .farm-images-list > img:not(.farm-user-list) {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 20px 20px 0px 0px;
 }
 .farm-description-list{
   padding: 8px;
@@ -99,9 +99,5 @@ transform: translate(-50%,0%);
   border-radius: 10px 10px 0px 0px;
 }
 
-.farm-images-list:hover{
-opacity: 70%;
-list-style-type: none;
-}
 
 

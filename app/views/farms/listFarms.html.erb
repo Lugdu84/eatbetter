@@ -1,55 +1,62 @@
-<div class="container">
-  <div class="content pr-3 pl-3">
-    <div class="card">
-      <div class="card-header">
-        <a class="btn btn-info-list card-link" href="#item" data-toggle="collapse">Recherche <i class="fas fa-search"></i></a>
-      </div>
-      <div class="collapse" id="item">
-        <div class="card-body">
-          <%= render 'shared/search' %>
-        </div>
-      </div>
+<div class="content pr-3 pl-3">
+  <div class="card">
+    <div class="card-header">
+      <a class="btn btn-info-list card-link" href="#item" data-toggle="collapse">Recherche <i class="fas fa-search"></i></a>
     </div>
-    <div class="farm">
-      <% @farms.each_with_index do |farm, i|%>
-      <%= link_to farm_path(farm), class:"farm-hover" do %>
-      <div class="farm-images-list" id="<%= farm.id %>">
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
-          <div class="carousel-inner product-images">
-            <div class="carousel-item active">
-              <%= image_tag farm.photo1, class:"d-block w-100" %>
-            </div>
-            <div class="carousel-item">
-              <%= image_tag farm.photo2, class:"d-block w-100" %>
-            </div>
-            <div class="carousel-item">
-              <%= image_tag farm.photo3, class:"d-block w-100" %>
-            </div>
-          </div>
-        </div>
-        <%= image_tag farm.photo_owner, class: "farm-user-list avatar-bordered" %>
-        <div class="farm-description-list">
-          <div class="farm-rating d-flex justify-content-center">
-            (<%= @reviews[i].count %>)
-            <% @ratings[i].times do %>
-            <i class="fas fa-star colored mt-1"></i>
-            <% end %>
-            <div class="favorite-farm">
-              <i class="far fa-heart"></i>
-            </div>
-            <% (5 - @ratings[i]).times do %>
-            <i class="fas fa-star mt-1"></i>
-            <% end %>
-          </div>
-          <p class="first-name mb-0"> <%= farm.user.first_name %> </p>
-          <p class="picto-list-tag mb-0">Producteur de <%=farm.tag_list %> <%= image_tag "Pictos/#{farm.tag_list}.png", id:"picto-list" %></p>
-          <p class="address mb-0"><strong>À <%= farm.address %></strong></p>
-          <p class="content-description mb-0"><%= farm.content %></p>
-        </div>
-        <% end %>
-        <% end %>
+    <div class="collapse" id="item">
+      <div class="card-body">
+        <%= render 'shared/search' %>
       </div>
     </div>
   </div>
+  <div class="farm">
+    <% @farms.each_with_index do |farm, i|%>
+    <div class="farm-images-list" id="<%= farm.id %>">
+      <div id="carousel-<%= i %>" class="carousel slide" data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag farm.photo1, class:"d-block w-100" %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag farm.photo2, class:"d-block w-100" %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag farm.photo3, class:"d-block w-100" %>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carousel-<%= i %>" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-<%= i %>" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <%= image_tag farm.photo_owner, class: "farm-user-list avatar-bordered" %>
+      <%= link_to farm_path(farm), class:"farm-hover" do %>
+      <div class="farm-description-list">
+        <div class="farm-rating d-flex justify-content-center">
+          (<%= @reviews[i].count %>)
+          <% @ratings[i].times do %>
+          <i class="fas fa-star colored mt-1"></i>
+          <% end %>
+          <div class="favorite-farm">
+            <i class="far fa-heart"></i>
+          </div>
+          <% (5 - @ratings[i]).times do %>
+          <i class="fas fa-star mt-1"></i>
+          <% end %>
+        </div>
+        <p class="first-name mb-0"> <%= farm.user.first_name %> </p>
+        <p class="picto-list-tag mb-0">Producteur de <%=farm.tag_list %> <%= image_tag "Pictos/#{farm.tag_list}.png", id:"picto-list" %></p>
+        <p class="address mb-0"><strong>À <%= farm.address %></strong></p>
+        <p class="content-description mb-0"><%= farm.content %></p>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
 </div>
-<%=  link_to ' Carte', farms_path(query: @address, fruits: 'on'), class: 'btn btn-primary-2 fas ml-3 text-center'%>
+</div>
+<%=  link_to ' Carte', farms_path(query: @address, fruits: 'on'), class: 'btn btn-primary-2 fas'%>
