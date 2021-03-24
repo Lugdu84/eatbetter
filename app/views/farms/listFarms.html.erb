@@ -6,7 +6,7 @@
       </div>
       <div class="collapse" id="item">
         <div class="card-body">
-           <%= render 'shared/search' %>
+          <%= render 'shared/search' %>
         </div>
       </div>
     </div>
@@ -14,20 +14,19 @@
       <% @farms.each_with_index do |farm, i|%>
       <%= link_to farm_path(farm), class:"farm-hover" do %>
       <div class="farm-images-list" id="<%= farm.id %>">
-        <div class="farm-images-list" id="<%= farm.id %>">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
-              <div class="carousel-inner product-images">
-                <div class="carousel-item active">
-                  <%= image_tag farm.photo1, class:"d-block w-100" %>
-                </div>
-                <div class="carousel-item">
-                  <%= image_tag farm.photo2, class:"d-block w-100" %>
-                </div>
-                <div class="carousel-item">
-                  <%= image_tag farm.photo3, class:"d-block w-100" %>
-                </div>
-              </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
+          <div class="carousel-inner product-images">
+            <div class="carousel-item active">
+              <%= image_tag farm.photo1, class:"d-block w-100" %>
             </div>
+            <div class="carousel-item">
+              <%= image_tag farm.photo2, class:"d-block w-100" %>
+            </div>
+            <div class="carousel-item">
+              <%= image_tag farm.photo3, class:"d-block w-100" %>
+            </div>
+          </div>
+        </div>
         <%= image_tag farm.photo_owner, class: "farm-user-list avatar-bordered" %>
         <div class="farm-description-list">
           <div class="farm-rating d-flex justify-content-center">
@@ -47,10 +46,10 @@
           <p class="address mb-0"><strong>À <%= farm.address %></strong></p>
           <p class="content-description mb-0"><%= farm.content %></p>
         </div>
+        <% end %>
+        <% end %>
       </div>
-      <% end %>
-      <% end %>
     </div>
   </div>
-  <%=  link_to ' Carte', farms_path(query: @address, fruits: 'on'), class: 'btn btn-primary fas fa-map-marked-alt ml-3 text-center'%>
 </div>
+<%=  link_to ' Carte', farms_path(query: @address, fruits: 'on'), class: 'btn btn-primary-2 fas ml-3 text-center'%>
