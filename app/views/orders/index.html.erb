@@ -4,7 +4,7 @@
     <div class="card-item-order">
         <%= image_tag order_item.product.photo, class: "card-item-order-img" %>
         <div class="item-order-info">
-          <h2> <%=order_item.product.name %></h2>
+          <h4> <%=order_item.product.name %></h4>
           <h6> Quantité : <%= order_item.quantity %>  <%= order_item.product.units %></h6>
           <h6> Prix unitaire : <%= order_item.product.price %> € / kg</h6>
           <h6> Prix total : <%= order_item.quantity * order_item.product.price %> €</h6>
