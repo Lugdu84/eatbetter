@@ -9,9 +9,10 @@
     <div class="card-product" id="<%= farm.id %>">
       <%= image_tag farm.photo1, class: "card-product-img" %>
       <div class="card-product-infos">
-        <h2> <%= farm.user.first_name %> </h2>
-        <h4> <%= farm.name %></h4>
-        <p> <%= farm.content %></p>
+        <p class="first-name mb-0"> <%= farm.user.first_name %> </p>
+        <p class="picto-list-tag mb-0">Producteur de <%=farm.tag_list %> <%= image_tag "Pictos/#{farm.tag_list}.png", id:"picto-list" %></p>
+        <p class="address mb-0"><strong>À <%= farm.address %></strong></p>
+        <p class="content-description mb-0"><%= farm.content %></p>
       </div>
       <div class="favorite-farm">
         <i class="far fa-heart"></i>
