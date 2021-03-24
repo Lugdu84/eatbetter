@@ -9,7 +9,7 @@ class OrderItemsController < ApplicationController
 
   def create
     @order_item = OrderItem.create!(order_items_params)
-    redirect_to orders_path
+    redirect_to listFarms_path(query: 'Aubagne', fruits:'on')
   end
 
   private
