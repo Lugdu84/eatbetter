@@ -236,4 +236,8 @@ puts "Create favorite farms"
     farm: Farm.last
     )
     puts "create favorites between #{Farm.last.name} and #{User.last.first_name}"
+puts "Create Order..."
+order = Order.create!(
+  user: User.last
+)
 puts "End of seeds..."
