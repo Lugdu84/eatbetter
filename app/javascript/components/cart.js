@@ -14,7 +14,7 @@ const initCart = () => {
         let total = Math.round((integerQuantity * integerProductPrice) * 100) / 100;
         displayQuantity.innerText = integerQuantity.toString();
         numberValue.value = integerQuantity;
-        totalPrice.innerText = `TOTAL : ${total.toString()}`;
+        totalPrice.innerText = `TOTAL : ${total.toString()} €`;
       }
     })
     down.addEventListener("click", event => {
@@ -23,7 +23,7 @@ const initCart = () => {
         let total = Math.round((integerQuantity * integerProductPrice) * 100) / 100;
         displayQuantity.innerText = integerQuantity.toString();
         numberValue.value = integerQuantity;
-        totalPrice.innerText = `TOTAL : ${total.toString()}`;
+        totalPrice.innerText = `TOTAL : ${total.toString()} €`;
       }
     })
   }
