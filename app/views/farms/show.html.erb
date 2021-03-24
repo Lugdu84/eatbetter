@@ -1,6 +1,6 @@
 <div class="container">
   <div class="farm-images mb-2">
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="false">
       <div class="carousel-inner product-images">
         <div class="carousel-item active">
           <%= image_tag @farm.photo1, class:"d-block w-100" %>
@@ -13,7 +13,6 @@
         </div>
       </div>
     </div>
-    <%#= image_tag @farm.photo1 %>
     <%= image_tag @farm.photo_owner, class: "farm-user avatar-bordered" %>
   </div>
   <div class="farm-rating d-flex justify-content-center">
