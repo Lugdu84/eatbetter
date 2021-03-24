@@ -21,8 +21,11 @@
                 </button>
             </div>
         </div>
-          <p class="price"> <%= @product.price %> € / le <%= @product.units %> </p>
-          <p class="total", id="total-item"> Total : <%= @product.price %> € </p>
+          <div class="inline-price">
+            <p class="price" id="price-product"> <%= @product.price %></p>
+            <p class="price"> €
+          </div>
+          <p class="total", id="total-item"> Total :  </p>
           <%= @order_item.product %>
           <% @order_item.market = @product.farm.markets.first %>
           <%= form_for @order_item do |f| %>

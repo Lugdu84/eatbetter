@@ -40,6 +40,13 @@
   font-size: 16px;
   font-weight: bolder;
 }
+
+.inline-price {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
 .content-description{
   color: #2C3A64;
   font-size: 14px;
