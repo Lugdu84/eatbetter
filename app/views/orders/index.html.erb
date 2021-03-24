@@ -1,22 +1,24 @@
-<h3 class="text-center">Mon panier</h3>
-<div class="list-item-order">
-  <% @order_items.each_with_index do |order_item, i|%>
-    <div class="card-item-order">
+<div class="container">
+  <% if @farm %>
+    <p class="first-name mb-0 text-center"> Mes commandes chez <%= @farm.user.first_name %> </p>
+    <p class="picto-list-tag mb-0 text-center">Producteur de <%= @farm.tag_list %> <%= image_tag "Pictos/#{@farm.tag_list}.png", id:"picto-list" %></p>
+  <% end %>
+  <div class="list-item-order">
+    <% @order_items.each_with_index do |order_item, i|%>
+      <div class="card-item-order">
         <%= image_tag order_item.product.photo, class: "card-item-order-img" %>
         <div class="item-order-info">
-          <h4> <%=order_item.product.name %></h4>
-          <h6> Quantité : <%= order_item.quantity %>  <%= order_item.product.units %></h6>
-          <h6> Prix unitaire : <%= order_item.product.price %> € / kg</h6>
-          <h6> Prix total : <%= (order_item.quantity * order_item.product.price).round(2) %> €</h6>
-          <h6> <%= order_item.market.name %></h6>
+          <p class="first-name m-1"> <%=order_item.product.name %></p>
+          <p class="content-description m-1"> Quantité : <%= order_item.quantity %>  <%= order_item.product.units %></p>
+          <p class="content-description m-1"> Prix unitaire : <%= order_item.product.price %> € / kg</p>
+          <p class="content-description m-1"> Prix total : <%= (order_item.quantity * order_item.product.price).round(2) %> €</p>
         </div>
-      <%= link_to '', order_item_path(order_item), method: :delete, class: 'item-delete fas fa-trash' %>
+        <%= link_to '', order_item_path(order_item), method: :delete, class: 'item-delete fas fa-trash' %>
+      </div>
+    <% end %>
+    <div class="card-total-order">
+      <p class="first-name">TOTAL : <%= @sum %> €</p>
     </div>
-  <% end %>
-  <div class="card-total-order">
-    <h6 class="text-center">TOTAL : <%= @sum %> €</h6>
-  </div>
-  <div class="card-total-order">
-    <h6>Choisir son click and collect...</h6>
   </div>
 </div>
+
