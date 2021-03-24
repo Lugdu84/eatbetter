@@ -4,9 +4,10 @@
     <% @favorites.each_with_index do |favorite, i| %>
     <div id="favorite-id<%= favorite.id %>">
       <%= render 'farms/farm_card', farm: favorite.farm, reviews: favorite.farm.reviews, average_rating: favorite.farm.reviews.average(:rating).to_i, favorite: favorite %>
- <!--      <%= link_to favorite_path(favorite.id), remote: true, method: :delete  do %>
-      <i class="far fa-times-circle"></i>
-      <% end %> -->
+     <!--  no need to keep this one as the same function is present in the partial
+     <%= link_to favorite_path(favorite), remote: true, method: :delete  do %>
+      <i class="far fa-times-circle"></i> -->
+      <% end %>
     </div>
     <% end %>
   </div>
