@@ -220,8 +220,8 @@ puts "create farms OK"
 
   puts "Create #{i + 1} user... for rating"
   review = Review.create!(
-    rating: rand(3..5),
-    content: Faker::Lorem::paragraph,
+    rating: rand(4..5),
+    content: 'Super producteur !',
     user: user,
     farm: farms.sample
   )
