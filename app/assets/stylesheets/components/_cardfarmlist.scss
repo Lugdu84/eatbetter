@@ -49,10 +49,10 @@
   color: #2C3A64;
   font-size: 14px;
 }
-.farm:hover{
-border: solid 3px #FFA412;
-border-radius: 0px 0px 20px 20px;
-}
+//.farm:hover{
+//border: solid 3px #FFA412;
+//border-radius: 0px 0px 20px 20px;
+//}
 #picto-list{
 height: 35px;
 }
@@ -61,11 +61,11 @@ height: 35px;
   font-size: 16px;
 }
 .btn-info-list{
-     color: #FFA412;
+  color: #ea6c2d;
   font-size: 16px;
 }
 .btn-info-list:hover{
-     color: #2C3A64;
+  color: #2C3A64;
   font-size: 16px;
 }
 .btn-primary{
@@ -74,9 +74,14 @@ border: 1px;
 border-radius: 10px 10px 0px 0px;
 }
 .btn-primary:hover{
-  color: #FFA412;
-  border: 1px solid #FFA412;
+  color: #ED7D2B;
+  border: 1px solid #ED7D2B;
   background-color: #fff;
   border-radius: 10px 10px 0px 0px;
+}
+
+.farm-images-list:hover{
+opacity: 70%;
+list-style-type: none;
 }
 

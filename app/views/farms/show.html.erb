@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="farm-images">
+  <div class="farm-images mb-2">
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
       <div class="carousel-inner product-images">
         <div class="carousel-item active">
@@ -27,7 +27,7 @@
   </div>
   <div >
     <p class="first-name mb-0"> <%= @farm.user.first_name %> - Producteur de <%= @farm.tag_list %> <%= image_tag "Picto/#{@farm.tag_list}.png", id:"picto-list" %></p>
-    <p class="address mb-0"><strong><%= @farm.address %></strong></p>
+    <p class="address mb-0"><strong>À <%= @farm.address %></strong></p>
     <p class="content-description mb-0"><%= @farm.content %></p>
 
     <div class="listOpenings farm-images p-1 mt-3">
