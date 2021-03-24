@@ -1,4 +1,4 @@
-<%= link_to farm_path(farm) do %>
+
 <div class="farm-images-list" id="<%= farm.id %>">
   <div class="favorite-farm">
     <%= link_to favorite_path(favorite), remote: true, method: :delete  do %>
@@ -8,6 +8,7 @@
   <%= image_tag farm.photo1 %>
   <%= image_tag farm.photo_owner, class: "farm-user-list avatar-bordered" %>
   <div class="farm-description-list">
+    <%= link_to farm_path(farm) do %>
     <div class="farm-rating d-flex justify-content-center">
       <p>(<%= reviews.count %>)</p>
       <% average_rating.times do %>
@@ -21,6 +22,7 @@
     <p class="picto-list-tag mb-0">Producteur de <%=farm.tag_list %> <%= image_tag "Picto/#{farm.tag_list}.png", id:"picto-list" %></p>
     <p class="address mb-0"><strong>À <%= farm.address %></strong></p>
     <p class="content-description mb-0"><%= farm.content %></p>
+  <% end %>
   </div>
 </div>
-<% end %>
+
