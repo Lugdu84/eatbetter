@@ -69,7 +69,7 @@ puts "Creating farms..."
     tel: '06-43-76-36-78',
     email: "#{first_names[i]}.#{last_names[i]}@gmail.com",
     content: "je m'appelle #{first_names[i]} et #{contents[i]}",
-    name: last_names[i],et je cultive des pommes et des poires, avec amour"
+    name: last_names[i],
     photo1: "Producteurs/#{i + 1}/1.jpg",
     photo2: "Producteurs/#{i + 1}/2.jpg",
     photo3: "Producteurs/#{i + 1}/3.jpg",
