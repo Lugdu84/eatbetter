@@ -3,6 +3,7 @@
     <p class="first-name mb-0 text-center"> Mes commandes chez <%= @farm.user.first_name %> </p>
     <p class="picto-list-tag mb-0 text-center">Producteur de <%= @farm.tag_list %> <%= image_tag "Pictos/#{@farm.tag_list}.png", id:"picto-list" %></p>
   <% end %>
+  <hr>
   <div class="list-item-order">
     <% @order_items.each_with_index do |order_item, i|%>
       <div class="card-item-order">
@@ -16,9 +17,10 @@
         <%= link_to '', order_item_path(order_item), method: :delete, class: 'item-delete fas fa-trash' %>
       </div>
     <% end %>
-    <div class="card-total-order">
-      <p class="first-name">TOTAL : <%= @sum %> €</p>
-    </div>
+    <hr>
+      <div class="card-total-order">
+        <p class="total">TOTAL : <%= @sum %> €</p>
+      </div>
   </div>
 </div>
 
