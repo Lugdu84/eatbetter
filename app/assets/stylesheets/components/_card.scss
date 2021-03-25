@@ -1,12 +1,12 @@
 .cards-farm {
-  max-height: 150px;
+  max-height: 170px;
   display: flex;
   overflow: scroll;
   //background-color: #FFA412;
 }
 .card-product {
   width: 90vw;
-  height: 130px;
+  height: 170px;
   background: white;
   //box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -17,8 +17,10 @@
 
 .card-product-img {
   height: 100%;
-  width: 120px;
+  width: 150px;
   object-fit: cover;
+  border-radius: 20px 0px 0px 20px;
+
 }
 
 .card-product h2 {
@@ -43,9 +45,14 @@
   padding: 16px;
   width: 200px;
 }
-
+.card-product-infos {
+  color: #2C3A64;
+  border: solid #82b378 1px;
+  border-radius: 0px 20px 20px 0px;
+}
 .card-active {
-  border-top: 3px #FFA412 solid;
+  border: solid #82b378 3px;
+  border-radius: 20px 20px 20px 20px;
 }
 
 .favorite-farm {
