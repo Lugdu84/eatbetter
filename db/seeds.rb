@@ -31,12 +31,12 @@ first_names =%w[Roger Norbert Xavier Aurélie Pierre Laurent Richard Emmanuelle 
 last_names = %w[Teradon Cotillon Lafoix Dilors Cohors Teliesse Vuque Yelle Sellier Martin]
 contents = ["ma famille cultive de magnifiques fruits, depuis plusieurs générations.",
             "je cultive des pommes et des poires, avec amour.",
-            "je cultive des fruits et suis passionné par mon métier.",
+            "je cultive des fruits et je suis passionné par mon métier.",
             "je cultive des fruits, en respectant l'environnement.",
-            "je cultive des poires et des pommes, et serait heureux de vous les présenter !",
+            "je cultive des poires et des pommes, et je serait heureux de vous les présenter !",
             "je cultive de magnifiques fruits, il ne tient qu'à vous de les découvrir.",
             "j'aimerais vous présenter l'endroit où l'excerce ma passion.",
-            "je suis passioné par mon métier, et adorerait vous présenter les fruits que je cultive.",
+            "je suis passioné par mon métier, et j'adorerais vous présenter les fruits que je cultive.",
             "les fruits que je cultive n'attendent que vous !",
             "je voudrais vous montrer les poires et les pommes que je cultive."
 ]
