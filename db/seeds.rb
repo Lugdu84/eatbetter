@@ -43,7 +43,7 @@ contents = ["ma famille cultive de magnifiques fruits, depuis plusieurs généra
 farms = []
 users = []
 addressFarm = []
-days = %w[lundi jeudi dimanche]
+days = %w[lundi mercredi dimanche]
 
 10.times do |i|
   user = User.create!(
@@ -85,11 +85,11 @@ puts "Creating farms..."
       farm: farm,
     )
     addressFarm << address
-    3.times do |index|
+    1.times do |index|
       opening = Opening.create!(
         start: '8 heures',
         end: '12 heures',
-        day: days[index],
+        day: days[j],
         market: address
       )
     end
