@@ -54,9 +54,9 @@
           <div class='product-images'>
             <%= image_tag product.photo %>
           </div>
-          <h4 class="name-product"><%= product.name %></h4>
-          <p class="content-product"> <%= product.content %></p>
-          <h6 class="price-product"><%= product.price %> € / <%= product.units %></h6>
+          <h4 class="name-product text-center"><%= product.name %></h4>
+          <p class="content-product text-justify"> <%= product.content %></p>
+          <h6 class="price-product text-center"><%= product.price %> € / <%= product.units %></h6>
         </div>
       <% end %>
     <% end %>
