@@ -239,6 +239,15 @@ puts "create farms OK"
   puts " #{i + 1 } -#{user.first_name}, rating for : #{review.farm.name}, with #{review.rating}"
 end
 
+puts "Create user demo day"
+user_demo = User.create!(
+  first_name: 'Camille',
+  last_name: 'DemoTest',
+  email: 'camille@gmail.com',
+  address: 'Aubagne',
+  password: 'azerty'
+)
+
 puts "Create favorite farms"
   favorite1 = Favorite.create!(
     user: User.last,
