@@ -26,7 +26,7 @@ puts "Destroy all users..."
 User.destroy_all
 
 puts 'Create users...'
-cities = %w[marseille aubagne cassis lascours allauch napollon auriol peypin ceyreste cadolive]
+cities = %w[Marseille Aubagne Cassis Lascours Allauch Napollon Auriol Peypin Ceyreste Cadolive]
 first_names =%w[Roger Norbert Xavier Aurélie Pierre Laurent Richard Emmanuelle Loïc Louis]
 last_names = %w[Teradon Cotillon Lafoix Dilors Cohors Teliesse Vuque Yelle Sellier Martin]
 contents = ["ma famille cultive de magnifiques fruits, depuis plusieurs générations.",
@@ -43,7 +43,7 @@ contents = ["ma famille cultive de magnifiques fruits, depuis plusieurs généra
 farms = []
 users = []
 addressFarm = []
-days = %w[lundi mercredi dimanche]
+days = %w[lundi samedi dimanche]
 
 10.times do |i|
   user = User.create!(
@@ -78,7 +78,7 @@ puts "Creating farms..."
   farm.tag_list.add('fruits', parse: true)
   farm.save
   3.times do |j|
-    city = cities.sample
+    city = cities[j]
     address = Market.create!(
       name: "marché de #{city}",
       address: city,
