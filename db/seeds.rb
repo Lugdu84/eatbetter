@@ -29,8 +29,8 @@ puts 'Create users...'
 cities = %w[Marseille Aubagne Cassis Lascours Allauch Napollon Auriol Peypin Ceyreste Cadolive]
 first_names =%w[Roger Norbert Xavier Aurélie Pierre Laurent Richard Emmanuelle Loïc Louis]
 last_names = %w[Teradon Cotillon Lafoix Dilors Cohors Teliesse Vuque Yelle Sellier Martin]
-contents = ["ma famille cultive de magnifiques fruits, depuis plusieurs générations.",
-            "je cultive des pommes et des poires, avec amour.",
+contents = ["je cultive des pommes et des poires, avec amour.",
+            "ma famille cultive de magnifiques fruits, depuis plusieurs générations.",
             "je cultive des fruits et je suis passionné par mon métier.",
             "je cultive des fruits, en respectant l'environnement.",
             "je cultive des poires et des pommes, et je serait heureux de vous les présenter !",
