@@ -26,9 +26,20 @@ puts "Destroy all users..."
 User.destroy_all
 
 puts 'Create users...'
-cities = %w[marseille, aubagne cassis lascours allauch napollon auriol peypin ceyreste cadolive]
+cities = %w[marseille aubagne cassis lascours allauch napollon auriol peypin ceyreste cadolive]
 first_names =%w[Roger Norbert Xavier Aurélie Pierre Laurent Richard Emmanuelle Loïc Louis]
 last_names = %w[Teradon Cotillon Lafoix Dilors Cohors Teliesse Vuque Yelle Sellier Martin]
+contents = ["ma famille cultive de magnifiques fruits, depuis plusieurs générations.",
+            "je cultive des pommes et des poires, avec amour.",
+            "je cultive des fruits et suis passionné par mon métier.",
+            "je cultive des fruits, en respectant l'environnement.",
+            "je cultive des poires et des pommes, et serait heureux de vous les présenter !",
+            "je cultive de magnifiques fruits, il ne tient qu'à vous de les découvrir.",
+            "j'aimerais vous présenter l'endroit où l'excerce ma passion.",
+            "je suis passioné par mon métier, et adorerait vous présenter les fruits que je cultive.",
+            "les fruits que je cultive n'attendent que vous !",
+            "je voudrais vous montrer les poires et les pommes que je cultive."
+]
 farms = []
 users = []
 addressFarm = []
@@ -57,8 +68,8 @@ puts "Creating farms..."
     address: cities[i],
     tel: '06-43-76-36-78',
     email: "#{first_names[i]}.#{last_names[i]}@gmail.com",
-    content: "je m'appelle #{first_names[i]} et je cultive des pommes et des poires, avec amour",
-    name: last_names[i],
+    content: "je m'appelle #{first_names[i]} et #{contents[i]}",
+    name: last_names[i],et je cultive des pommes et des poires, avec amour"
     photo1: "Producteurs/#{i + 1}/1.jpg",
     photo2: "Producteurs/#{i + 1}/2.jpg",
     photo3: "Producteurs/#{i + 1}/3.jpg",
