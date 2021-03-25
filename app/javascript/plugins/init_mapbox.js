@@ -24,7 +24,7 @@ const initMapbox = () => {
         {
             map.on('load', function (e) {
                 /*map.addSource('markers', {
-                    type: 'geojson',
+                    type: 'geojson ',
                     data: markers,
                     // cluster: true,
                     // clusterMaxZoom: 14,
