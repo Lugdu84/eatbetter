@@ -31,8 +31,31 @@
 }
 .listOpenings{
     padding: 8px;
-  border: solid #2C3A64 1px;
-  border-radius: 20px 20px 20px 20px;
+  //border: solid #2C3A64 1px;
+  //border-radius: 20px 20px 20px 20px;
+  color : #2C3A64;
+}
+hr
+{
+  width:100%;
+}
+.text-list-market{
+    color : #2C3A64;
+}
+.name-product{
+  color: #2C3A64;
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.content-product{
+  color: #2C3A64;
+  font-size: 14px;
+}
+.price-product{
+    color: #2C3A64;
+  font-size: 16px;
+  font-weight: bolder;
 }
 // .card-trip p {
 //   font-size: 12px;

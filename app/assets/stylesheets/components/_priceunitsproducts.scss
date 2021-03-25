@@ -33,18 +33,21 @@
   right: 16px;
   top: 100px;
   width: 80px;
+  text-align:justify;
 }
 
 .price{
   color: #2C3A64;
   font-size: 16px;
   font-weight: bolder;
+  text-align:center;
 }
 
 .inline-price {
   display: flex;
   flex-direction: row;
   align-content: center;
+    text-align:center;
 }
 
 .content-description{

@@ -28,13 +28,13 @@
     <p class="first-name mb-0"> <%= @farm.user.first_name %> - Producteur de <%= @farm.tag_list %> <%= image_tag "Picto/#{@farm.tag_list}.png", id:"picto-list" %></p>
     <p class="address mb-0"><strong>À <%= @farm.address %></strong></p>
     <p class="content-description mb-0"><%= @farm.content %></p>
-
+<hr>
     <div class="listOpenings farm-images p-1 mt-3">
       <p class="text-center first-name "> Mes points de ventes :</p>
       <% @farm.markets.each do |market| %>
         <a class="" data-toggle="collapse" href="#market-<%= market.id %>"
            role="button" aria-expanded="false" aria-controls="market-<%= market.id %>">
-          <p class="text-center"> <%= market.name %></p>
+          <p class="text-list-market text-center"> <%= market.name %></p>
         </a>
         <div class="collapse" id="market-<%= market.id %>">
           <div class="card card-body content-description text-center">
@@ -45,17 +45,18 @@
         </div>
       <% end %>
     </div>
+    <hr/>
   </div>
-  <div class="product-description mt-3">
+  <div class="product-description  mt-3">
     <% @products.each do |product| %>
       <%= link_to farm_product_path(product) do %>
         <div class="farm-images p-3 mb-3">
           <div class='product-images'>
             <%= image_tag product.photo %>
           </div>
-          <h4><%= product.name %></h4>
-          <p> <%= product.content %></p>
-          <h6><%= product.price %> € / <%= product.units %></h6>
+          <h4 class="name-product"><%= product.name %></h4>
+          <p class="content-product"> <%= product.content %></p>
+          <h6 class="price-product"><%= product.price %> € / <%= product.units %></h6>
         </div>
       <% end %>
     <% end %>
