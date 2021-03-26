@@ -1,12 +1,12 @@
 .cards-farm {
-  max-height: 170px;
+  max-height: 195px;
   display: flex;
   overflow: scroll;
   //background-color: #FFA412;
 }
 .card-product {
   width: 90vw;
-  height: 170px;
+  height: 180px;
   background: white;
   //box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -47,11 +47,10 @@
 }
 .card-product-infos {
   color: #2C3A64;
-  border: solid #82b378 1px;
   border-radius: 0px 20px 20px 0px;
 }
 .card-active {
-  border: solid #82b378 3px;
+  border: solid #82b378 2px;
   border-radius: 20px 20px 20px 20px;
 }
 
