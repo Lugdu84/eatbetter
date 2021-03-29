@@ -1,22 +1,22 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div></div>
-    <%= link_to root_path, class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag("logo/logo.jpg", class: "img-responsive", id: "navbar-logo") %>
-    <% end %>
-    <!-- <i class=“fal fa-shopping-bag”></i> -->
-    <!-- <i class=“fal fa-user”></i> -->
-<div class="d-flex">
-  <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "", destroy_user_session_path, :method => :delete, class: "fas fa-user-circle profil-color-on" %>
-            <%= link_to "",  favorites_path , class:"fas fa-heart profil-color-off ml-2"  %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "", new_user_session_path, class: "far fa-user-circle profil-color-off" %>
-          </li>
   <% end %>
-  <%= link_to "",  orders_path , class:"fas fa-shopping-basket profil-color-off ml-2"  %>
+  <!-- <i class=“fal fa-shopping-bag”></i> -->
+  <!-- <i class=“fal fa-user”></i> -->
+  <div class="d-flex">
+    <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "", destroy_user_session_path, :method => :delete, class: "fas fa-user-circle profil-color-on" %>
+        <%= link_to "",  favorites_path , class:"fas fa-heart profil-color-off ml-2"  %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "", new_user_session_path, class: "far fa-user-circle profil-color-off" %>
+      </li>
+    <% end %>
+    <%= link_to "",  orders_path , class:"fas fa-shopping-basket profil-color-off ml-2"  %>
 
-</div>
+  </div>
 </div>
